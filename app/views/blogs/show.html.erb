@@ -17,12 +17,24 @@
               </div><!--/.well -->
 
  
-    <div class="row-fluid offset1 inline">
+    <div class="row span9 outlny">
  
 	<div class = 'span2'>
+		<%= image_tag 'lauren.jpg'%>
+		
+	</div>
+	<div class = "span5">
+		<br>
+		<br>
+		<h1>  &nbsp; &nbsp;  &nbsp;        Lauren Sez:</h1>
+		
+	</div>
+	
+		</div>	
+	<div class = 'span2'>	
 		<%= image_tag @blog.pic.url%>
-		</div>
-	<div class = 'span7'>
+	</div>	
+	<div class = 'span7 '>
 	 <span class = 'blog_title'> <%= @blog.title %></span><br>
  
  
@@ -30,5 +42,5 @@
   <%= @blog.created_at.strftime('%B %d, %Y') %></span><br>
  <div class = 'blog_post'> <%=raw RedCloth.new(@blog.post).to_html %></div><br>
 	</div>
-	</div>
+
 

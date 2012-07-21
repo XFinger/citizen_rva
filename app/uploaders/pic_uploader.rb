@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class PicUploader < CarrierWave::Uploader::Base
-process :resize_to_fill => [100, 200]
+process :resize_to_fill => [130, 200]
   # Include RMagick or MiniMagick support:
    include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
