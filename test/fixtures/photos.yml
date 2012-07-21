@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  gallery_id: 1
+  caption: MyString
+  position: 1
+  image: MyString
+  name: MyString
+  remote_image_url: MyString
+
+two:
+  gallery_id: 1
+  caption: MyString
+  position: 1
+  image: MyString
+  name: MyString
+  remote_image_url: MyString

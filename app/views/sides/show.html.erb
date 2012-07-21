@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>S name:</b>
+  <%= @side.s_name %>
+</p>
+
+<p>
+  <b>S description:</b>
+  <%= @side.s_description %>
+</p>
+
+<p>
+  <b>Useable:</b>
+  <%= @side.useable_id %>
+</p>
+
+<p>
+  <b>Useable type:</b>
+  <%= @side.useable_type %>
+</p>
+
+<p>
+  <b>S price:</b>
+  <%= @side.s_price %>
+</p>
+
+<p>
+  <b>S count:</b>
+  <%= @side.s_count %>
+</p>
+
+
+<%= link_to 'Edit', edit_side_path(@side) %> |
+<%= link_to 'Back', sides_path %>

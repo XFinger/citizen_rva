@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sal name:</b>
+  <%= @salad.sal_name %>
+</p>
+
+<p>
+  <b>Sal description:</b>
+  <%= @salad.sal_description %>
+</p>
+
+<p>
+  <b>Useable:</b>
+  <%= @salad.useable_id %>
+</p>
+
+<p>
+  <b>Useable type:</b>
+  <%= @salad.useable_type %>
+</p>
+
+<p>
+  <b>Sal price:</b>
+  <%= @salad.sal_price %>
+</p>
+
+<p>
+  <b>Sal count:</b>
+  <%= @salad.sal_count %>
+</p>
+
+
+<%= link_to 'Edit', edit_salad_path(@salad) %> |
+<%= link_to 'Back', salads_path %>

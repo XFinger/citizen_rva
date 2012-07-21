@@ -1,0 +1,44 @@
+<%= simple_nested_form_for @order, :html => {:class => 'well span12 form-inline offset1'} do |f| %>
+  <%= f.error_notification %>
+ 
+ <h2>Delivery Address</h2> 
+  <%= f.simple_fields_for :address %>
+
+  <hr>
+    <%= f.hidden_field :user_id, :value =>  current_user.id %>
+    <%= f.input :delivery, :collection => [['Delivery', true] ,['Pick Up', false]], :item_wrapper_class => 'inline', :as => :radio_buttons ,  :label => false %>
+
+    <%= f.input :delivery_time, :label => 'Delivery/Pick Up Time', :as => :string, :input_html => { :id => 'stime' } %> 
+
+    <%= f.input :delivery_instruct, :label => 'Additional Delivery Instructions', :input_html => { :class => 'span9 short'} %>	
+
+<h2>Sandwiches</h2>  
+<%= f.simple_fields_for :dishes %>
+
+<h2>Salads</h2>  
+<%= f.simple_fields_for :salads %> 
+
+<h2>Sides</h2>  
+<%= f.simple_fields_for :sides %>
+
+<h2>Drinks</h2>  
+<%= f.simple_fields_for :drinks %>
+ 	
+ 
+	
+	
+    <%= f.button :submit, :class => 'topmarg' %>
+ 
+<% end %>
+<%= content_for :javascript do %>
+		<script type="text/javascript">
+$('#stime').datetimepicker({
+	beforeShowDay: $.datepicker.noWeekends,
+	ampm: true,
+	stepMinute: 15,
+	hourMin: 10,
+	hourMax: 14,
+});
+
+		</script>
+<%end%>

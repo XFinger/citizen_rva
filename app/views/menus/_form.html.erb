@@ -1,0 +1,54 @@
+<%= simple_nested_form_for @menu , :html => {:class => ' well form-horizontal'} do |f| %>
+  <%= f.error_notification %>
+
+ <%= f.simple_fields_for :dishes do |d|  %> 
+
+ <%= d.input :name , :label =>  'Sandwich'%>
+ <%= d.input :description%>
+ <%= d.input :price%>
+ 
+  
+ 	
+ <%= d.link_to_remove "Remove", :class => 'btn btn-mini pad' %> 
+ <br>
+ <%end%>
+
+ <%= f.link_to_add "Add A Dish", :dishes, :class => 'btn btn-mini' %>
+  
+ <hr>
+ 
+  <%= f.simple_fields_for :salads do |d|  %> 
+
+ <%= d.input :sal_name , :label =>  'Salad Name'%>
+ <%= d.input :sal_description%>
+ <%= d.input :sal_price%>
+ 
+  
+ 	
+ <%= d.link_to_remove "Remove", :class => 'btn btn-mini pad' %> 
+ <br>
+ <%end%>
+
+ <%= f.link_to_add "Add A Salad", :salads, :class => 'btn btn-mini' %>
+  
+ <hr>
+
+ <%= f.simple_fields_for :sides do |s|  %>  
+ <%= s.input :s_name , :label =>  'Side Name'%>
+ <%= s.input :s_description, :label =>  'Description'%>
+ <%= s.input :s_price, :label =>  'Price'%>
+ 
+ <%= s.link_to_remove "Remove", :class => 'btn btn-mini pad' %> 
+ 
+ <%end%>
+ <%= f.link_to_add "Add A Side", :sides, :class => 'btn btn-mini' %>
+  
+
+  
+ <hr>
+ 
+ <div>
+<%= f.button :submit %>
+ </div>
+<% end %>
+

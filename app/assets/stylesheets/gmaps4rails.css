@@ -1,0 +1,28 @@
+.map_container {
+  padding: 6px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #ccc #ccc #999 #ccc;
+  -webkit-box-shadow: 0 2px 5px #888;
+  -moz-box-shadow: 0 2px 5px #888;
+  box-shadow: 0 2px 5px #888;
+ min-width: 300px;
+}
+
+.gmaps4rails_map {
+  width: 375px;
+  height: 350px;
+}
+
+#larger.gmaps4rails_map{
+	width:500px;
+	height:500px;
+	
+	
+}
+.mark_img img{
+	display:inline-block;
+	padding:0 17px 5px 0;
+	background:url("ms2.png") 100% 50% no-repeat; 
+	vertical-align:top;
+} 

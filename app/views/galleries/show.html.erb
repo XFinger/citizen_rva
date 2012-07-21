@@ -1,0 +1,12 @@
+<ul class="hoverbox">
+	<% unless @gallery.nil? %>
+	<% @gallery.photos.each do |p|  %>
+<li>
+<a><%= image_tag p.image.url(:thumb) %>
+   <%= image_tag p.image.url.to_s, :class => 'preview'%>
+	 </a>
+	 
+</li>
+ <%end%>
+  <%end%>
+</ul>

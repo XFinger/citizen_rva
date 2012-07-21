@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  sal_name: MyString
+  sal_description: MyString
+  useable_id: MyString
+  useable_type: MyString
+  sal_price: 9.99
+  sal_count: 1
+
+two:
+  sal_name: MyString
+  sal_description: MyString
+  useable_id: MyString
+  useable_type: MyString
+  sal_price: 9.99
+  sal_count: 1

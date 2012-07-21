@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  description: MyString
+  useable_id: 1
+  useable_type: MyString
+  price: 9.99
+  count: 1
+
+two:
+  name: MyString
+  description: MyString
+  useable_id: 1
+  useable_type: MyString
+  price: 9.99
+  count: 1

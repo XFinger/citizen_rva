@@ -1,0 +1,8 @@
+  	<%= image_tag(photo_form.object.image.url(:thumb)) if  photo_form.object.image? %>
+  </div>
+  <%= photo_form.input :caption, :label => 'Caption', :wrapper_html => { :class => "inline" } %>
+  
+  <%= photo_form.input :image, :as => :file, :label => 'Photo ' %>
+  <%= photo_form.input :remote_image_url%>
+  <%= photo_form.link_to_remove "", :class => 'icon-remove-sign' %> 
+  <br><br>

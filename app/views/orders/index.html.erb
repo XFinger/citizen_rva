@@ -1,0 +1,62 @@
+
+
+
+
+ <div class='bold'>
+
+<% @orders.each do |order| %>
+<%  if order.confirmed? %>
+	Confirmed<br>
+<%else%>
+	Not Confirmed<br>
+<%end%>
+
+	<% if order.delivery? %>
+ 		Delivery: 
+ 	<% else %>
+ 		Pick Up:
+ 	<% end %>
+ 	
+  		<%= order.delivery_time.strftime('%I:%M %p %B %d, %Y')  %>
+  		
+  	
+<br>
+
+<%= order.address.contact_name %><br>
+<%= order.address.phone%><br>
+<%= order.user.email%><br>
+
+ 	<% order.dishes.each do |d|%>
+		<% if !d.count.nil? %>
+			<%= order_list(d.count, d.name)%>
+		<% end %>
+	<% end %>
+	
+   <% order.salads.each do |sal|%>
+		<% if !sal.sal_count.nil? %>
+		<%= order_list(sal.sal_count, sal.sal_name)%>
+		<% end %>
+	<% end %>
+ 
+	<% order.sides.each do |side|%>
+		<% if !side.s_count.nil? %>
+		<%= order_list(side.s_count, side.s_name)%> 
+		<% end %>
+	<% end %>
+ 
+	<% order.drinks.each do |dr|%>
+		<% if !dr.d_count.nil? %>
+		<%= order_list(dr.d_count, dr.d_name)%>
+		<% end %>
+ 	<% end %>
+<div class = ' topmarg btn-group'>
+	<%= link_to 'Order Sheets', order_sheet_path(:id => order.id) , :class => 'btn btn-mini'%>
+    <%= link_to 'Edit', edit_order_path(order), :class => 'btn btn-mini' %>
+    <%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini' %>	
+</div>
+<hr>	
+<br>
+
+<% end %>
+
+</div>

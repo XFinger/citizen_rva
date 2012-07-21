@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  delivery_time: 2012-06-23 23:01:03
+  confirmed: false
+  user_id: 1
+  ttl_price: 
+  sub_ttl: 9.99
+  tax: 9.99
+  delivery: false
+  address_id: 1
+  delivery_instruct: MyText
+
+two:
+  delivery_time: 2012-06-23 23:01:03
+  confirmed: false
+  user_id: 1
+  ttl_price: 
+  sub_ttl: 9.99
+  tax: 9.99
+  delivery: false
+  address_id: 1
+  delivery_instruct: MyText

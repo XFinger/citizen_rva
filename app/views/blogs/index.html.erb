@@ -1,0 +1,31 @@
+<%= content_for :side do %>
+              <div class="well sidebar-nav">
+                <h3>Archive</h3>
+                <ul class="nav nav-list">
+                 <% @blogs.each do |blog| %>
+                 <% unless @blog.created_at == blog.created_at %>
+                  <li><%= link_to blog.title, blog_path(@blog)  %></li>
+                  <%end%>
+                   <%end%>
+                </ul>
+              </div><!--/.well -->
+
+<%end%>
+    <div class="row-fluid offset1 inline">
+ 
+	<div class = 'span2'>
+		<%= image_tag @blog.pic.url%>
+		</div>
+	<div class = 'span8'>
+	 <span class = 'blog_title'> <%= @blog.title %></span><br>
+ 
+ 
+  <span class = 'date'>Published on:
+  <%= @blog.published_on %></span><br>
+ <div class = 'blog_post'> <%=raw RedCloth.new(@blog.post).to_html %></div><br>
+	</div>
+	</div>
+	
+ 
+   
+

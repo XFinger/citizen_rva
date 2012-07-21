@@ -1,0 +1,21 @@
+<h1>Listing boxmenus</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @boxmenus.each do |boxmenu| %>
+  <tr>
+    <td><%= link_to 'Show', boxmenu %></td>
+    <td><%= link_to 'Edit', edit_boxmenu_path(boxmenu) %></td>
+    <td><%= link_to 'Destroy', boxmenu, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Boxmenu', new_boxmenu_path %>

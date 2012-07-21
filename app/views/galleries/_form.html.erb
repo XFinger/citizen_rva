@@ -1,0 +1,22 @@
+
+<br><br>
+
+
+ <%= simple_nested_form_for @gallery, :html=>{:class => ' form-horizontal', :multipart => true } do |f| %>
+
+  <%= f.simple_fields_for :photos do |photo_form|  %> 
+   <div class ='span1'>
+  	<%= image_tag(photo_form.object.image.url(:thumb)) if  photo_form.object.image? %>
+  </div>
+  <%= photo_form.input :caption, :wrapper_html => { :class => "offset2 " } %>
+  
+  <%= photo_form.input :image, :as => :file, :wrapper_html => { :class => "offset2 " } %>
+  <%= photo_form.input :remote_image_url, :wrapper_html => { :class => "offset2 " } %>
+  <%= photo_form.link_to_remove "Remove", :class => 'btn btn-mini' %> 
+  <hr><br>
+  <% end %>
+  <br>
+<%= f.link_to_add "Add A Photo", :photos, :class => 'btn btn-mini' %><br><br>
+<%= f.button :submit %>
+<% end %>
+

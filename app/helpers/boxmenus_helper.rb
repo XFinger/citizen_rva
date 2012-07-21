@@ -1,0 +1,2 @@
+module BoxmenusHelper
+end

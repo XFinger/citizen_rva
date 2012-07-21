@@ -1,0 +1,67 @@
+/* =Hoverbox Code
+----------------------------------------------------------------------*/
+.caption{ 
+  font-size:8px;
+  color:black;
+ 
+}
+.hoverbox
+{
+  cursor: default;
+  list-style: none;
+  display:inline-block;
+  position: relative;
+  margin: 10px 0 10px 0;
+  width:360px ;
+  float:left;
+}
+
+.hoverbox a
+{
+  cursor: default;
+}
+
+.hoverbox a .preview
+{
+  display: none;
+}
+
+.hoverbox a:hover .preview
+{
+  display: block;
+  position: absolute;
+  top: -13px;
+  left: -25px;
+  z-index: 1;
+}
+
+.hoverbox img
+{
+  background: #fff;
+  border:thin solid #e2e2e2;
+  color: inherit;
+  padding: 2px;
+  vertical-align: top;
+  width: 100px;
+  height: 90px;
+}
+
+.hoverbox li
+{
+  background: #eee;
+  border:thin solid #e2e2e2;
+  display: inline;
+  float: left;
+  margin: 3px;
+  padding: 0px;
+  position: relative;
+ 
+}
+
+.hoverbox .preview
+{
+  border-color: #e2e2e2;
+  width: 200px;
+  height: 150px;
+}
+

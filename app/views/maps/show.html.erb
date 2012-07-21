@@ -1,0 +1,12 @@
+<%= render 'form' %>
+
+
+ 
+<div class = 'pull-right'>
+<%= gmaps({
+    "map_options" => { "type" => "ROADMAP", "center_longitude" => 180, "zoom" => 18, "auto_zoom" => false,
+    	 :id => "larger"},
+    "markers" => { "data" => @markers }
+    })
+    %>
+</div> 

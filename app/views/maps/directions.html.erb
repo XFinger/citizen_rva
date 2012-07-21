@@ -1,0 +1,10 @@
+<%= 
+gmaps({ "direction" => {
+	"map_options" => { "type" => "MAP", "center_longitude" => 180, "zoom" => 9, "auto_adjust" => true},
+                    "data"    => { "from" => @address, "to" =>  "909 E. Main St, Richmond, VA"} , 
+                    "options" => { "display_panel" => true, "panel_id" => "instructions"}
+              }
+      })
+ %>
+ 
+<div id = 'instructions'></div>

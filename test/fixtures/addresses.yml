@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  street: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  lat: 1.5
+  lng: 1.5
+  is_default: false
+
+two:
+  user_id: 1
+  street: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  lat: 1.5
+  lng: 1.5
+  is_default: false

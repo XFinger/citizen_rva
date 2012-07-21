@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+<h2> Sandwiches  served on a La Sobrasita Bollio Roll</h2>
+
+
+<%  @menu.dishes.each do |dish| %>
+ 
+		<%= dish.name%><br>
+		<%= dish.description%>
+		<%= dish.price%> <br>
+ 
+<%end%>
+
+<br>
+<h2> Salads</h2>
+<%  @menu.salads.each do |salad| %>
+ 
+		<%= salad.sal_name%><br>
+		<%= salad.sal_description%>
+		<%= salad.sal_price%> <br>
+ 
+<%end%>
+<br>
+<h2> Sides</h2>
+
+<%  @menu.sides.each do |side| %>
+	<%= side.s_name%> 
+	 
+	<%= side.s_price%> <br>
+
+<%end%>
+<br>
+
+
+
+
+<hr>
+<%= link_to 'Edit', edit_boxmenu_path(@menu) %> |

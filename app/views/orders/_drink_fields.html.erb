@@ -1,0 +1,12 @@
+		<div class = " menu">
+			<%= f.input :d_count, :input_html => { :class => ' input-small pull-left '}, :label =>false  %>
+			<span class = 'menu_pad'>
+				<%= f.object.d_name  %>	
+				<%= deci f.object.d_price  %>					
+ 				<%= f.hidden_field :d_name, :value =>  f.object.d_name  %>
+   
+   				<%= f.hidden_field :d_price, :value =>  f.object.d_price  %>
+			</span>
+		</div>
+
+ 
