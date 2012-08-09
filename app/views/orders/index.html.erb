@@ -5,6 +5,7 @@
  <div class='bold'>
 
 <% @orders.each do |order| %>
+Order # : <%= order.id %><br>
 <%  if order.confirmed? %>
 	Confirmed<br>
 <%else%>
@@ -23,7 +24,7 @@
 <br>
 
 <%= order.address.contact_name %><br>
-<%= order.address.phone%><br>
+<%= number_to_phone(order.address.phone, :groupings => [3, 3, 4], :delimiter => "-") %><br>
 <%= order.user.email%><br>
 
  	<% order.dishes.each do |d|%>

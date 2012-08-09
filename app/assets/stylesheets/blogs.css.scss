@@ -2,13 +2,57 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+#blog_wrap{
+  display:inline-block;
+  width:68%;
+  margin:50px 0 0 8%;
+  outline:1px solid yellow;
+}
+#blog_side{
+  position:relative;
+  display:inline-block;
+  width:17%;
+  float:right;
+  margin:50px 6% 0 1%;
+  outline:1px solid orange;
+}
+#b_head{
+  height:120px;
+}
+#b_head img, #blog_body img{
+  width:100px;
+  display:inline-block; 
+  float:left;
+  margin-right:25px;
+}
+#tagline{
+  font-size:28px;
+  position:relative;
+  margin:4px 0 0 25%;
+  font-weight:bold;
+  top:25px;
+}
+.blog_list{
+  list-style:none;
+  font-weight:bold;
+  font-size:16px;
+  text-decoration:none;
+}
+.blog_post{
+  font-size:18px;
+  min-height:210px;
+}
+#blog_side h3{
+  text-align:center;
+  text-decoration:underline;
+}
 img{padding:5px;
 }
 
 .blog_title{
+  display:inline-block;
   font-weight:bold;
-  font-size:16px;
+  font-size:19px;
   color:#2E2E2E;
 }
 .date{
@@ -17,5 +61,8 @@ img{padding:5px;
   color:#2E2E2E;
 }
 .blog_post{
-  margin-top:20px;
+  margin-top:10px;
+  padding-left:8px;
 }
+.center{text-align:center;}
+hr .blue{color:blue;}

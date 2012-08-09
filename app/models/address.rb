@@ -1,5 +1,9 @@
 class Address < ActiveRecord::Base
-   acts_as_gmappable :process_geocoding => :geocode?, :lat => 'lat', :lng => 'lng'
+   acts_as_gmappable :lat => 'lat', :lng => 'lng', :process_geocoding => false,
+                  :address => "address", :normalized_address => "address",
+                  :msg => "Sorry, not even Google could figure out where that is"
+
+
 
 def gmaps4rails_address
   "#{self.street}, #{self.city}, #{self.state}" 

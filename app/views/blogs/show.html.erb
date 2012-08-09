@@ -1,46 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div id = 'blog_wrap'>
+	<div id = 'b_head'>
+		<%= image_tag 'lauren.jpg'%>
+		<div id = 'tagline'> Citizen Lauren Sez</div>
+	</div>
+  
+	<hr>  
+	<div id = 'blog_body'>
+		  
+   		<%= image_tag @blog.pic.url%>
+   		<div class = 'blog_title'> 
+   			<%= @blog.title %>
+   		</div> 
+   		<div class = 'date'>
+  			<%= @blog.published_on.strftime('%B %d, %Y')  %>
+  		</div> 
+  		<div class = 'blog_post'> 
+  			<%=raw RedCloth.new(@blog.post).to_html %>
+  		</div> 
+	</div>
 
- 
-              <div class="well sidebar-nav pull-right">
-                <h3>Archive</h3>
-                <ul class="nav nav-list">
+
+</div>
+<div id ='blog_side'>
+	<h3>Lauren Said</h3>
+                <ul class="blog_list">
                  <% @blogs.each do |blog| %>
-                 <% if request.path.include?(blog.id.to_s) %>
-                  <li class="active">
-                  	<%else%>
-                  	<li>
+                 <% unless @blog.created_at == blog.created_at %>
+                  <li><%= link_to blog.title, blog_path(blog) %></li>
+                  <li class = 'date'><%=  blog.published_on.strftime('%B %d, %Y')  %></li>
                   <%end%>
-                  	<%= link_to blog.title, blog_path(blog)  %>
-                 </li>
                    <%end%>
                 </ul>
-              </div><!--/.well -->
-
- 
-    <div class="row span9 outlny">
- 
-	<div class = 'span2'>
-		<%= image_tag 'lauren.jpg'%>
-		
-	</div>
-	<div class = "span5">
-		<br>
-		<br>
-		<h1>  &nbsp; &nbsp;  &nbsp;        Lauren Sez:</h1>
-		
-	</div>
-	
-		</div>	
-	<div class = 'span2'>	
-		<%= image_tag @blog.pic.url%>
-	</div>	
-	<div class = 'span7 '>
-	 <span class = 'blog_title'> <%= @blog.title %></span><br>
- 
- 
-  <span class = 'date'>
-  <%= @blog.created_at.strftime('%B %d, %Y') %></span><br>
- <div class = 'blog_post'> <%=raw RedCloth.new(@blog.post).to_html %></div><br>
-	</div>
-
-
+</div>

@@ -1,13 +1,18 @@
 class BlogsController < ApplicationController
+  load_and_authorize_resource
+  
+  def publish
+    @blog=Blog.find(params[:id])
+    @blog.published=true
+    @blog.published_on=Time.now
+    @blog.save
+    redirect_to :back
+  end
  
   def index
-   @blog=Blog.where('published = ?', true).last
+
    @blogs=Blog.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @blogs }
-    end
   end
 
  
@@ -17,8 +22,8 @@ class BlogsController < ApplicationController
    else
       @blog=Blog.where('published = ?', true).last
    end
-   @blogs=Blog.find(:all, :order => "published_on  DESC" )
-
+    #@blogs=Blog.find(:all, :order => "published_on  DESC" )
+    @blogs=Blog.where('published = ?', true).order("published_on  DESC" )
 
     respond_to do |format|
       format.html # show.html.erb

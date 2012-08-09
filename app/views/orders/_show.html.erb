@@ -1,5 +1,5 @@
-<div class = 'span10 bold'>
-	<div class = "lg_text">
+
+	<div>
 		<%= @order.address.contact_name%><br>
 		<%= @order.address.styled_address%><br>
 		
@@ -42,10 +42,10 @@
 		<% end %>
  	<% end %>
 <br> 
-	<div>Subtotal: <span class = 'pull-right'><%= deci_plain @order.sub_ttl%></span></div>
-	<div>Tax: <span class = 'pull-right'><%= deci_plain @order.tax%></span></div>
-	<div>Total: <span class = 'pull-right'><%= deci_plain @order.ttl_price%></span></div>
+	<div>Subtotal: <span class = 'pull-right_r'><%= deci_plain @order.sub_ttl%></span></div>
+	<div>Tax: <span class = 'pull-right_r'><%= deci_plain @order.tax%></span></div>
+	<div>Total: <span class = 'pull-right_r'><%= deci_plain @order.ttl_price%></span></div>
 
 
-</div>
+
 <br>

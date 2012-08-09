@@ -1,6 +1,7 @@
 class BoxmenusController < ApplicationController
-  # GET /boxmenus
-  # GET /boxmenus.json
+  
+  load_and_authorize_resource
+  
   def index
     @boxmenus = Boxmenu.all
 

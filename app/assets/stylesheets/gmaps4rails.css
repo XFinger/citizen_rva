@@ -6,12 +6,12 @@
   -webkit-box-shadow: 0 2px 5px #888;
   -moz-box-shadow: 0 2px 5px #888;
   box-shadow: 0 2px 5px #888;
- min-width: 300px;
+ min-width: 475px;
 }
 
 .gmaps4rails_map {
-  width: 375px;
-  height: 350px;
+  width: 475px;
+  height: 450px;
 }
 
 #larger.gmaps4rails_map{
@@ -26,3 +26,26 @@
 	background:url("ms2.png") 100% 50% no-repeat; 
 	vertical-align:top;
 } 
+
+#larger  .map_container {
+  padding: 6px;
+  border:none;
+  box-shadow:none;
+  width: 600px;
+  position:relative;
+  height:400px;
+
+}
+
+#instructions.order_instruct{
+	width:500px;
+
+	font-size:18px;
+}
+#instructions{
+	width:40%;
+}
+#adp-placemark, .adp-placemark{
+	border:none;
+	background:none;
+}

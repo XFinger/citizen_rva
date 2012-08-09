@@ -16,64 +16,63 @@
   
   </head>
   <body>
+  	
+ 
+  	
+ <div id = 'pagewrap'>
+ 	<% if user_signed_in? && current_user.admin? %>
+    	<%= render 'shared/admin'%>
+    <%end%>
+ 	
+ 	
+	<div id = 'hmenu'>
+		<ul>
+			<li><%= link_to "Home", root_path  %></li>
+ 			<li><%= link_to "Lunch Menu", '/menus/1'%></li>	
+			<li><%= link_to "Box Lunch Menu", '/boxmenus/1'  %></li>
+			<li><%= link_to "Map", map_path %></li>
+			<li><%= link_to "Gallery", '/galleries/5'  %></li>
+			<li><%= link_to "About Citizen"  %></li>
+			
+			
+		</ul> 
+ 	 
+ 		<div id = "shift">
+    			<ul >
+	                 <% if user_signed_in? %>
+	          			<li class="nav_text_sm"><%= current_user.email %>  </li>  |         			 
+	          			<li class="nav_text_sm"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+	        		<% else %>
+	          			<li class="nav_text_sm"><%= link_to "SIGN UP", new_user_registration_path %></li> | 
+	          			<li class="nav_text_sm">  <%= link_to "SIGN IN", new_user_session_path %></li>
+	        		<% end %>
+  				 </ul>       
+		</div>
+	</div>	
+	
+	
+     	<div id = 'clear'></div>	
 
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">CitizenII</a>
-          <div class="container nav-collapse">
-            <ul class="nav">
-              	<li><%= link_to "Blog", root_path  %></li>
-               	<li><%= link_to "Edit Box Menu", '/boxmenus/1/edit'  %></li>
-               	<li><%= link_to "Box Menu", '/boxmenus/1'  %></li>
-              	<li><%= link_to "Gallery", '/galleries/5'  %></li>
-              	<li><%= link_to "Order", new_order_path %></li>
-              	<li><%= link_to "Map", map_path %></li>
-              	<li><%= link_to "Orders", orders_path %></li>
-              	<li><%= link_to "Menu", '/menus/1'%></li>	
-            </ul>
-<ul class = "nav pull-right">
-                 <% if user_signed_in? %>
-          			<li class="navbar-text"><%= current_user.email %>  </li>         			 
-          			<li class="navbar-text"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-        		<% else %>
-          			<li class="navbar-text"><%= link_to "Sign up", new_user_registration_path %></li>
-          			<li class="navbar-text">  <%= link_to "or sign in", new_user_session_url, :subdomain => false %></li>
-        		<% end %>
-</ul>            
-            
-            
-            
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
+	
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+ 
 
-    <div class="container">
-      <div class="content">
-        <div class="row-fluid offset1">
-           <div class="span10">
-      	
-           	
-              <%= yield %>
+		<div class="main">
+			<%= yield %>
+		</div>
+ 
 
-            </div>
-            <div class="span3 pull-right">
-				<%= yield :side%>
-            </div><!--/span-->
-        </div><!--/row-->
-      </div><!--/content-->
+</div>
+    <div class="bottombar" >
 
-      <footer>
-        <p>&copy; Company 2012</p>
-      </footer>
+       
+        	&copy; Citizen MMXII  | 909 E. Main St, Richmond VA |  (804) 780-9038  |  Hours: Monday - Friday 7am - 3pm
 
-    </div> <!-- /container -->
+	 
+
+     </div>
 
     <!-- Javascripts
     ================================================== -->

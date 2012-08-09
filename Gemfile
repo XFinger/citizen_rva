@@ -19,7 +19,7 @@ gem 'carrierwave'
 gem 'twitter'
 gem 'jquery-rails'
 gem 'roadie'
-
+gem "cancan"
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
