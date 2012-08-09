@@ -1,7 +1,12 @@
+  <div class = 'menu_line'>
   	<%= f.input :contact_name%>
-  	<%= f.input :phone, :as => :tel, :label => false, :placeholder => 'Telephone #'%>
+  	<%= f.input :phone, :as => :tel, :label => 'Telephone #'%>
+  	
+  	<div class="ss">
   	<%= f.input :street, :label => 'Street Address'%>
   	<%= f.input :city, :label => 'City', :placeholder => 'Richmond'%>
-  	<%= f.input :state, :label => 'State', :placeholder => 'VA'%>
+  	<%= f.input :state, :label => 'State', :placeholder => 'VA', :input_html => { :class => 'three'}%>
   	<%= f.input :user_id, :as => :hidden , :input_html => { :value => current_user.id }%>
-  
+  	</div>
+  	
+  </div>

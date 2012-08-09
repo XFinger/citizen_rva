@@ -3,7 +3,7 @@ module OrdersHelper
       content_tag :div do
        concat(content_tag(:span, count, :class => "spacer")) 
          concat(content_tag(:span, desc))
-          concat(content_tag( :span, (deci_plain count * price), :class => "pull-right"))
+          concat(content_tag( :span, (deci_plain count * price), :class => "pull-right_r"))
          
       end      
    end

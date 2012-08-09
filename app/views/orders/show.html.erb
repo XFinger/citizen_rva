@@ -1,7 +1,7 @@
-<p id="notice"><%= notice %></p>
+
 <%= render 'show' %>
  
-<div class = 'span11 topmarg btn-group'>
+<div class = 'topmarg btn-group'>
 <%= link_to 'Edit', edit_order_path(@order), :class => 'btn btn-mini'%>
-<%= link_to 'Confirm Order', confirmation_path(:id => @order.id, :address => @order.address.id), :class => 'btn btn-mini' %>
+<%= link_to 'Confirm Order', confirmation_path(:id => @order.id, :address => @order.address.id), :class => 'btn btn-mini' if !@order.confirmed?%>
 </div> 

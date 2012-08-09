@@ -1,3 +1,46 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.split_l{
+  display:inline-block;
+  width:50%;
+
+}
+.split_r{
+  display:inline-block;
+  width:50%;
+  position:relative;
+  float:right;
+  font-size:20px;
+  padding-top:50px;
+}
+.split_short{
+  width:35%;
+  margin-right:7%;
+}
+#box{
+  width:18px;
+  height:18px;
+  outline:1px solid black;
+  display:inline-block;
+  margin-right:6px;
+}
+#orders td.ul{
+  
+  width:222px;
+  border-bottom:1px solid black;
+}
+#orders td{
+  padding-right:20px;
+  text-align:right;
+  height:30px;
+}
+.big_print{
+  font-size:18px;
+  font-weight:normal;
+}
+.pull-right_r{
+  float:right;
+  margin-right:40px;
+}

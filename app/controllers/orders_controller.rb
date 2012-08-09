@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   after_filter :get_ttls, :only => [:create, :update]
   before_filter :authenticate_user!
-  
+  load_and_authorize_resource
   
   def order_sheet
     @order=Order.find(params[:id])
@@ -107,12 +107,7 @@ class OrdersController < ApplicationController
     @user=current_user
     #@address=Address.find(:first, :conditions => ['user_id = ?', current_user.id])
     @order = Order.new
- 
-    
-   
     @order.build_address( :city => "Richmond", :state => "VA")
- 
- 
     @boxmenu.dishes.each do |dish|
       @order.dishes.build(:name => dish.name, :description =>dish.description, :price => dish.price)
     end
@@ -136,13 +131,16 @@ class OrdersController < ApplicationController
   def edit
     @boxmenu = Boxmenu.find(:first)
     @order = Order.find(params[:id])
-
   end
 
  
   def create
     @order = Order.new(params[:order])
+    puts @order.delivery
+    puts '_____________________________'
+    if @order.delivery == true
     get_geo
+    end
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, :notice => 'Order was successfully created.' }

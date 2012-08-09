@@ -1,17 +1,31 @@
-<%= simple_nested_form_for @order, :html => {:class => 'well span12 form-inline offset1'} do |f| %>
+<%= simple_nested_form_for @order do |f| %>
   <%= f.error_notification %>
- 
- <h2>Delivery Address</h2> 
+  <div class = 'menu_line'>
+  <%= f.hidden_field :user_id, :value =>  current_user.id %>
+  
+  <%= f.input :delivery, 
+          :collection => [[true, 'Delivery'], [false, 'Pick Up']], 
+          :label_method => :last, 
+          :value_method => :first,
+          :as => :radio_buttons,
+          :label => false, 
+          :item_wrapper_class => 'inline',
+          :input_html => { :class => 'rb'},
+          :checked => true%>
+  <br>
+  
+  <%= f.input :delivery_time, :label => 'Delivery/Pick Up Time', :as => :string, :input_html => { :id => 'stime' } %> 
+  
+
   <%= f.simple_fields_for :address %>
+  <div class="ss">
 
+  
+<%= f.input :delivery_instruct, :label => 'Delivery Instructions', :input_html => { :class => 'text_a'} %>	
   <hr>
-    <%= f.hidden_field :user_id, :value =>  current_user.id %>
-    <%= f.input :delivery, :collection => [['Delivery', true] ,['Pick Up', false]], :item_wrapper_class => 'inline', :as => :radio_buttons ,  :label => false %>
+</div> 
 
-    <%= f.input :delivery_time, :label => 'Delivery/Pick Up Time', :as => :string, :input_html => { :id => 'stime' } %> 
-
-    <%= f.input :delivery_instruct, :label => 'Additional Delivery Instructions', :input_html => { :class => 'span9 short'} %>	
-
+ </div>
 <h2>Sandwiches</h2>  
 <%= f.simple_fields_for :dishes %>
 
@@ -32,13 +46,22 @@
 <% end %>
 <%= content_for :javascript do %>
 		<script type="text/javascript">
-$('#stime').datetimepicker({
-	beforeShowDay: $.datepicker.noWeekends,
-	ampm: true,
-	stepMinute: 15,
-	hourMin: 10,
-	hourMax: 14,
-});
-
+			$('#stime').datetimepicker({
+				beforeShowDay: $.datepicker.noWeekends,
+				ampm: true,
+				stepMinute: 15,
+				hourMin: 10,
+				hourMax: 14,
+			});
+			
 		</script>
+
+
+<script type="text/javascript"> 
+	$('.rb').click(function() { $('.ss').toggle(); });
+</script>
+
 <%end%>
+
+
+

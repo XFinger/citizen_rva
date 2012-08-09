@@ -1,15 +1,15 @@
-<%= simple_nested_form_for @boxmenu , :html => {:class => ' well form-horizontal'} do |f| %>
+<%= simple_nested_form_for @boxmenu , :html => {:class => 'form-horizontal bold'} do |f| %>
   <%= f.error_notification %>
 
  <%= f.simple_fields_for :dishes do |d|  %> 
 
- <%= d.input :name , :label =>  'Sandwich'%>
- <%= d.input :description%>
- <%= d.input :price%>
+ <%= d.input :name , :label =>  'Sandwich', :input_html => { :class => 'one'}%>
+ <%= d.input :description, :input_html => { :class => 'two'}%>
+ <%= d.input :price, :input_html => { :class => 'three'}%>
  
   
  	
- <%= d.link_to_remove "Remove", :class => 'btn btn-mini pad' %> 
+ <%= d.link_to_remove "Remove", :class => 'btn btn-mini pad float_it' %> 
  <br>
  <%end%>
 
@@ -19,13 +19,13 @@
  
   <%= f.simple_fields_for :salads do |d|  %> 
 
- <%= d.input :sal_name , :label =>  'Salad Name'%>
- <%= d.input :sal_description%>
- <%= d.input :sal_price%>
+ <%= d.input :sal_name , :label =>  'Salad Name', :input_html => { :class => 'one'}%>
+ <%= d.input :sal_description, :input_html => { :class => 'two'}%>
+ <%= d.input :sal_price, :input_html => { :class => 'three'}%>
  
   
  	
- <%= d.link_to_remove "Remove", :class => 'btn btn-mini pad' %> 
+ <%= d.link_to_remove "Remove", :class => 'btn btn-mini pad float_it' %> 
  <br>
  <%end%>
 
@@ -34,11 +34,11 @@
  <hr>
 
  <%= f.simple_fields_for :sides do |s|  %>  
- <%= s.input :s_name , :label =>  'Side Name'%>
- <%= s.input :s_description, :label =>  'Description'%>
- <%= s.input :s_price, :label =>  'Price'%>
+ <%= s.input :s_name , :label =>  'Side Name', :input_html => { :class => 'one'}%>
+
+ <%= s.input :s_price, :label =>  'Price', :input_html => { :class => 'three'}%>
  
- <%= s.link_to_remove "Remove", :class => 'btn btn-mini pad' %> 
+ <%= s.link_to_remove "Remove", :class => 'btn btn-mini pad float_it' %> 
  
  <%end%>
  <%= f.link_to_add "Add A Side", :sides, :class => 'btn btn-mini' %>
@@ -46,10 +46,10 @@
  <hr>
 
  <%= f.simple_fields_for :drinks do |dr|  %>  
- <%= dr.input :d_name, :label =>  'Drink Name' %>
- <%= dr.input :d_price, :label =>  'Price'%>
+ <%= dr.input :d_name, :label =>  'Drink Name', :input_html => { :class => 'one'} %>
+ <%= dr.input :d_price, :label =>  'Price', :input_html => { :class => 'three'}%>
  
- <%= dr.link_to_remove "Remove", :class => 'btn btn-mini pad' %> 
+ <%= dr.link_to_remove "Remove", :class => 'btn btn-mini pad float_it' %> 
  
  <%end%>
  <%= f.link_to_add "Add A Drink", :drinks, :class => 'btn btn-mini pad' %>

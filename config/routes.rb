@@ -33,17 +33,18 @@ CitizenII::Application.routes.draw do
 
   resources :galleries
 
-  devise_for :users
+  
 
   resources :blogs
   resources :maps
   
-  resources :authentications
+  resources :authentications, :only => [:index, :create, :destroy]
   match '/auth/:provider/callback' => 'authentications#create'
 
-  devise_for :users, :controllers => { :authentications => 'registrations' }
+ # devise_for :users, :controllers => { :authentications => 'registrations' }
   
-  
+  #devise_for :users, :controllers => { :omniauth_callbacks => 'authentications', :registrations => 'registrations' }
+devise_for :users, :controllers => {:authentications => "authentications", :omniauth_callbacks => "omniauth_callbacks"}
   
   
   
@@ -53,6 +54,7 @@ CitizenII::Application.routes.draw do
   match 'confirmation' => 'orders#confirmation', :as => 'confirmation'
   match 'map' => "maps#show", :as =>'map'
   match 'directions' => 'maps#directions', :as =>'directions'
+  match 'publish' => 'blogs#publish', :as => 'publish'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

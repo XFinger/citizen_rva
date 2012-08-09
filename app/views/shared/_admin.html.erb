@@ -1,0 +1,27 @@
+
+<div id = 'admin_links' >
+<a href="javascript:void()" class="toggleLink">Admin Links</a>
+
+<div id = 'admin'>
+		<ul>
+			
+
+			<li><%= link_to "Orders", orders_path %></li>
+			
+			<li><%= link_to "New Blog", new_blog_path %></li>
+			<li><%= link_to "Manage Blogs", blogs_path %></li>
+			<li><%= link_to "Edit Box Lunch Menu", '/boxmenus/1/edit' %></li>
+			
+			<li><%= link_to "Edit Menu", '/menus/1/edit' %></li>
+			<li><%= link_to "Manage Gallery", '/galleries/5/edit' %></li>
+
+			
+			
+		</ul> 
+</div>
+<%= content_for :javascript do %>
+	<script type="text/javascript"> 
+		$('.toggleLink').click(function() { $('#admin').toggle(); });
+	</script>
+<%end%>
+</div>

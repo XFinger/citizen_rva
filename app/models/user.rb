@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:twitter, :facebook, :google_oauth2]
+         :recoverable, :rememberable, :trackable, :validatable 
+         #:omniauthable, :omniauth_providers => [:twitter, :facebook, :google_oauth2]
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
@@ -18,9 +18,9 @@ class User < ActiveRecord::Base
     authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
   end
   
-  def password_required?
-   (authentications.empty? || !password.blank?) && super
-  end
+#  def password_required?
+#   (authentications.empty? || !password.blank?) && super
+#  end
 
  def self.find_for_googleapps_oauth(access_token, signed_in_resource=nil)
   data = access_token['user_info']
