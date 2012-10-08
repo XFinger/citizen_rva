@@ -8,6 +8,7 @@ class Ability
       if user.admin?
         can :manage, :all
       else
+        can :get_menu, Menu
         can :read, [Menu, Boxmenu, Gallery]
         can :show, Blog
         can :show, Order, :user_id => user.id

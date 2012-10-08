@@ -1,3 +1,62 @@
 // Place all the styles related to the menus controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.border{
+  border:11px solid transparent;
+  -moz-border-image:url(burl.gif) 25 30 10 20 repeat;
+  -webkit-border-image:url(burl.gif) 25% stretch;
+  border-image:url(burl.gif) 25 30 10 20 repeat;
+  -moz-box-shadow: inset 0 0 10px #000000, 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000, 0 0 10px #000000;
+  box-shadow: inset 0 0 10px #000000, 0 0 10px #000000;
+
+}
+#breakfast{
+  display:inline-block;
+  width:64%;
+  min-height:50px;
+  padding:9px;
+ 
+}
+.bhead{
+  margin-top:3px;
+
+  font-size:29px;
+}
+.bname{
+  font-size:18px;
+}
+#sides{
+  display:inline-block;
+  width:30%; 
+  min-height:50px; 
+  float:right;
+  vertical-align:text-top;
+  padding:8px;
+ 
+
+}
+#sides .bhead{
+  margin-left:25%;
+} 
+ul.bside li{
+  position:relative;
+  list-style:none;
+  text-indent:0;
+  line-height:35px;
+  font-size:17px;
+  margin-left:-20px;
+}
+.full{
+  display:inline-block;
+  width:100%;
+  padding:8px;
+}
+.half{
+  display:inline-block;
+  width:47%;
+  min-height:50px;
+  padding:8px;
+  vertical-align:text-top;
+}

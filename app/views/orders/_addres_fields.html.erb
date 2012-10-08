@@ -7,6 +7,9 @@
   	<%= f.input :city, :label => 'City', :placeholder => 'Richmond'%>
   	<%= f.input :state, :label => 'State', :placeholder => 'VA', :input_html => { :class => 'three'}%>
   	<%= f.input :user_id, :as => :hidden , :input_html => { :value => current_user.id }%>
+  	<%= f.input :addressable_id, :as => :hidden , :input_html => { :value => current_user.id }%>
+  	<%= f.input :addressable_type, :as => :hidden , :input_html => { :value => "Order"}%>
+  	
   	</div>
   	
   </div>

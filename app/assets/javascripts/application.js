@@ -6,12 +6,17 @@
 //
 //= require jquery
 //= require jquery_ujs
+
+
 //= require jquery-ui
+//= require jquery.ui.datepicker.min
+
 //= require jquery-ui-timepicker-addon 
 //= require jquery.ui.slider
+
 //= require textile-editor
 //= require textile-editor-config
-//= require bootstrap
+
 //= require jquery_nested_form
 
 

@@ -1,0 +1,33 @@
+@media print {
+body { 
+    margin:0;
+	font-family: "Georgia", Times New Roman, Serif;
+	color: #000;
+	background: #fff;
+}	
+	
+#admin_links, #admin, #hmenu, #media_links, .bottombar {
+display: none;
+}
+.background_print{
+  width:8.5in;
+  height:11in;
+  background:white;
+
+  padding:5px;
+}
+.page_break{
+	page-break-after:always;
+ 
+	}
+#box{
+  width:18px;
+  height:18px;
+  outline:1px solid black;
+  display:inline-block;
+  margin-right:6px;
+}
+	
+	
+	
+}

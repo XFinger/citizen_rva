@@ -2,7 +2,7 @@ class GalleriesController < ApplicationController
   load_and_authorize_resource
   
   def index
-    @galleries = Gallery.all
+    @galleries = Gallery.first
 
     respond_to do |format|
       format.html # index.html.erb
@@ -12,7 +12,7 @@ class GalleriesController < ApplicationController
  
   def show
     @gallery = Gallery.first
-
+    @photos = Photo.order('created_at desc').page(params[:page]).per(15)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @gallery }

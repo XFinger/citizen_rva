@@ -49,6 +49,7 @@ devise_for :users, :controllers => {:authentications => "authentications", :omni
   
   
   root :to => 'blogs#show'
+  match 'get_menu' => 'menus#get_menu', :as => 'get_menu'
   match 'order_sheet' => 'orders#order_sheet', :as => 'order_sheet'
   match 'textile_preview' => 'textile_preview#show'
   match 'confirmation' => 'orders#confirmation', :as => 'confirmation'

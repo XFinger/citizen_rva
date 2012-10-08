@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :addresses
+  has_one :address
   has_many :orders
   
   

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120804215317) do
+ActiveRecord::Schema.define(:version => 20121004020246) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "user_id"
@@ -30,14 +31,6 @@ ActiveRecord::Schema.define(:version => 20120804215317) do
     t.boolean  "gmaps"
   end
 
-  create_table "authentications", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "blogs", :force => true do |t|
     t.string   "pic"
     t.string   "title"
@@ -49,6 +42,17 @@ ActiveRecord::Schema.define(:version => 20120804215317) do
   end
 
   create_table "boxmenus", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "box_pdf"
+  end
+
+  create_table "breakfasts", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "useable_id"
+    t.string   "useable_type"
+    t.decimal  "price",        :precision => 4, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -88,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20120804215317) do
   create_table "menus", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "pdf"
   end
 
   create_table "orders", :force => true do |t|

@@ -1,12 +1,16 @@
-<%= render 'form' %>
 
-
- 
-<div class = 'pull-right'>
-<%= gmaps({
-    "map_options" => { "type" => "ROADMAP", "center_longitude" => 180, "zoom" => 18, "auto_zoom" => false,
-    	 :id => "larger"},
-    "markers" => { "data" => @markers }
-    })
-    %>
-</div> 
+<div id = 'background_cardboard'>
+	<div class = 'split_l direct_container'>
+		<div class = 'stape'>
+			<%= image_tag('tape.png')%>
+		</div>
+		<%= render 'form' %>
+	</div> 
+	<div class = 'split_rmap'>
+		<%= gmaps({
+   		 "map_options" => { "type" => "ROADMAP", "center_longitude" => 180, "zoom" => 18,
+   		  "auto_zoom" => false, :id => "larger"}, "markers" => { "data" => @markers }
+  		  })
+   		 %>
+	</div> 
+</div>

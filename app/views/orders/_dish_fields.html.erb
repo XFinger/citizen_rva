@@ -1,12 +1,14 @@
 <div class = "menu_line">
 	<%= f.input :count, :input_html => { :class => 'four'}, :label =>false  %>
-		<span class = 'menu_pad'>
+		 
+			<p>
 			<%= f.object.description  %>	
-			<%= deci f.object.price  %>					
+			<%= deci f.object.price  %>
+			</p>					
  			<%= f.hidden_field :name, :value =>  f.object.name  %>
   			<%= f.hidden_field :description, :value =>  f.object.description  %>
    			<%= f.hidden_field :price, :value =>  f.object.price  %>
-		</span>
+		
 </div>
 
  

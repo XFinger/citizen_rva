@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "CitizenII" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Citizen" %></title>
     <%= csrf_meta_tags %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -12,47 +12,58 @@
     <![endif]-->
 
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag "print", :media => "print" %>
+ 
+
   <%= yield :head %>
   
   </head>
   <body>
-  	
- 
-  	
- <div id = 'pagewrap'>
+  	 <div id = 'pagewrap'>
+
+
  	<% if user_signed_in? && current_user.admin? %>
     	<%= render 'shared/admin'%>
     <%end%>
  	
- 	
+
 	<div id = 'hmenu'>
+	<span id = 'logo'><%= image_tag "citizenlogo.png"%>
+ 		
+ 	</span>		
+		
+		
 		<ul>
 			<li><%= link_to "Home", root_path  %></li>
  			<li><%= link_to "Lunch Menu", '/menus/1'%></li>	
-			<li><%= link_to "Box Lunch Menu", '/boxmenus/1'  %></li>
+			<li><%= link_to "Box Lunches", '/boxmenus/1'  %></li>
 			<li><%= link_to "Map", map_path %></li>
-			<li><%= link_to "Gallery", '/galleries/5'  %></li>
-			<li><%= link_to "About Citizen"  %></li>
+			<li><%= link_to "Gallery", '/galleries/1'  %></li>
+			<li><%= link_to "Citizen"  %></li>
 			
 			
 		</ul> 
- 	 
+
  		<div id = "shift">
-    			<ul >
+    			 
 	                 <% if user_signed_in? %>
-	          			<li class="nav_text_sm"><%= current_user.email %>  </li>  |         			 
-	          			<li class="nav_text_sm"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+	          			<%= current_user.email %> &nbsp; |  &nbsp;        			 
+	          			<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 	        		<% else %>
-	          			<li class="nav_text_sm"><%= link_to "SIGN UP", new_user_registration_path %></li> | 
-	          			<li class="nav_text_sm">  <%= link_to "SIGN IN", new_user_session_path %></li>
+	          			<%= link_to "SIGN UP ", new_user_registration_path %> &nbsp; |  &nbsp;
+	          			 <%= link_to " SIGN IN", new_user_session_path %>
 	        		<% end %>
-  				 </ul>       
+  				       
 		</div>
 	</div>	
 	
 	
-     	<div id = 'clear'></div>	
-
+     		
+ 	 <div id = 'media_links'>
+ 	 	<%= link_to image_tag('fbook.png'), "http://www.facebook.com/citizenrva"%>
+ 	 	<%= link_to image_tag('twitter.png'), "http://twitter.com/CitizenRVA"%>
+ 	 	<%= link_to image_tag( 'yelp.png'), "http://www.yelp.com/biz/citizen-richmond" %>
+ 	 </div>
 	
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
@@ -65,11 +76,11 @@
  
 
 </div>
+<div class = 'clear'></div>
     <div class="bottombar" >
-
-       
+		<p class = 'footer'>
         	&copy; Citizen MMXII  | 909 E. Main St, Richmond VA |  (804) 780-9038  |  Hours: Monday - Friday 7am - 3pm
-
+		</p>
 	 
 
      </div>
@@ -77,7 +88,7 @@
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-               <%= javascript_include_tag "application", 'jquery-ui-timepicker-addon'%>
+               <%= javascript_include_tag "application"%>
 <%= yield :javascript%>
 <%= yield :scripts %>
   </body>

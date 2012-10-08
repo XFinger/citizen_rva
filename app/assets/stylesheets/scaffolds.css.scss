@@ -1,18 +1,81 @@
 html{width:100%; margin:0;}
-body{width:100%;; margin:0;}
+body{
+  width:100%;
+  margin:0;
+  background:url('wood3.jpg')center center fixed no-repeat;
+ -moz-background-size: cover;
+  background-size: cover;
+   }
+@font-face {
+    font-family: DirtyHeadlineRegular;
+    src: url('dirty_headline-webfont.eot');
+    src: url('dirty_headline-webfont.eot?#iefix') format('embedded-opentype'),
+     url('dirty_headline-webfont.woff') format('woff'),
+         url('dirty_headline-webfont.ttf') format('truetype'),
+         url('dirty_headline-webfont.svg#DirtyHeadlineRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 
+}
+
+@font-face {
+    font-family: 'EraserRegular';
+    src: url('EraserRegular-webfont.eot');
+    src: url('EraserRegular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('EraserRegular-webfont.woff') format('woff'),
+         url('EraserRegular-webfont.ttf') format('truetype'),
+         url('EraserRegular-webfont.svg#EraserRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+#blackboard{
+  width:78%;
+  background:url(bboard.jpg)center center fixed no-repeat;
+ -moz-background-size: cover;
+ -webkit-background-size: cover;
+  background-size: cover;
+  margin:0 auto;
+  padding:20px 4px;
+  font-family:EraserRegular;
+  color:white; 
+  font-size:15px;
+
+
+}
+#background_plain{
+  width:85%;
+  min-height:600px;
+  margin:0 auto;
+  background:white;
+  padding:20px 10px;
+}
+#background_cardboard{
+  background:url(cardboard.jpg)center center fixed no-repeat;
+   -moz-background-size: cover;
+ -webkit-background-size: cover;
+  background-size: cover;
+  width:85%;
+  min-height:600px;
+  margin:0 auto;
+  padding:20px 10px;
+  -moz-box-shadow: 0 0 10px #000000;
+  -webkit-box-shadow: 0 0 10px #000000;
+  box-shadow:  0 0 10px #000000;
+
+}
+.background_print{
+  width:8.5in;
+  height:11in;
+  background:white;
+  margin:2px auto 2px auto;
+  padding:15px;
+}
 pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px; }
 
-a {
-  color: #666;
-  &:visited {
-    color: #666; }
-  &:hover {
-    color: #fff;
-    background-color: #000; } }
 
 a:link{
   text-decoration:none;
@@ -48,34 +111,36 @@ a:link{
 
 #pagewrap {
   position:relative;
-padding-bottom:50px;
-margin-bottom:30px;
-width:100%;
- 
+  padding-bottom:50px;
+  margin-bottom:30px;
+  width:100%;
+  min-height:720px;
   }
 
  .bottombar {
-  
-  position: fixed;
-  bottom:0;
-
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  overflow: hidden;
-  background:black;
-  padding:10px 0px;
+  background-image:url('barfoot.png');
+  background-repeat:repeat-x;
+  height:80px;
+  margin-top:5px;
+  color:white;
   text-align:center;
-  font-weight:bold;
-  color:#666;
-  font-size:17px;
- 
+  position:relative;
+  bottom:3px;
+  width:100%;
   }
+.footer{
+  padding-top:25px;
+  opacity:0.6;
+  filter:alpha(opacity=60);
+  font-family:DirtyHeadlineRegular;
+  font-size:20px;
+
+}
 .main{
   width: 90%;
   position:relative;
   margin:auto;
-  outline:1px solid red;
+ 
   }
 
 hr {

@@ -5,7 +5,13 @@ class Order < ActiveRecord::Base
 
 
   belongs_to :user
-
+  
+  attr_accessible :delivery_time, :confirmed, :delivery, :delivery_instruct, :dishes_attributes, :user_id,
+                  :salads_attributes, :sides_attributes, :drinks_attributes, :address_attributes
+                   
+  validates :delivery_time, :presence => true
+  
+  
   has_many :dishes, :as => :useable, :dependent => :destroy
   has_many :salads, :as => :useable, :dependent => :destroy
   has_many :sides, :as => :useable, :dependent => :destroy

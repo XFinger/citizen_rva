@@ -1,6 +1,25 @@
-<%= simple_nested_form_for @menu , :html => {:class => ' well form-horizontal'} do |f| %>
+<div id = 'background_plain'>
+<h3 class = 'center'>Menu</h3><br><br>
+<%= simple_nested_form_for @menu , :html => {:class => ' well form-horizontal', :multipart => true } do |f| %>
   <%= f.error_notification %>
+  <%= f.input :pdf, :as => :file %>
+   <hr>
+ <%= f.simple_fields_for :breakfasts do |d|  %> 
 
+ <%= d.input :name , :label =>  'Breakfast'%>
+ <%= d.input :description%>
+ <%= d.input :price%>
+ 
+  
+ 	
+ <%= d.link_to_remove "Remove", :class => 'btn btn-mini float_it' %> 
+ <br>
+ <%end%>
+
+ <%= f.link_to_add "Add Breakfast", :breakfasts, :class => 'btn btn-mini pad' %>
+  
+ <hr>
+ 
  <%= f.simple_fields_for :dishes do |d|  %> 
 
  <%= d.input :name , :label =>  'Sandwich'%>
@@ -9,27 +28,27 @@
  
   
  	
- <%= d.link_to_remove "Remove", :class => 'btn btn-mini pad' %> 
+ <%= d.link_to_remove "Remove", :class => 'btn btn-mini float_it' %> 
  <br>
  <%end%>
 
- <%= f.link_to_add "Add A Dish", :dishes, :class => 'btn btn-mini' %>
+ <%= f.link_to_add "Add A Sandwich", :dishes, :class => 'btn btn-mini pad' %>
   
  <hr>
  
   <%= f.simple_fields_for :salads do |d|  %> 
 
- <%= d.input :sal_name , :label =>  'Salad Name'%>
- <%= d.input :sal_description%>
- <%= d.input :sal_price%>
+ <%= d.input :sal_name , :label =>  'Salad Name' %>
+ <%= d.input :sal_description, :label =>  'Salad Description'%>
+ <%= d.input :sal_price %>
  
   
  	
- <%= d.link_to_remove "Remove", :class => 'btn btn-mini pad' %> 
+ <%= d.link_to_remove "Remove", :class => 'btn btn-mini float_it' %> 
  <br>
  <%end%>
 
- <%= f.link_to_add "Add A Salad", :salads, :class => 'btn btn-mini' %>
+ <%= f.link_to_add "Add A Salad", :salads, :class => 'btn btn-mini pad' %>
   
  <hr>
 
@@ -38,10 +57,10 @@
  <%= s.input :s_description, :label =>  'Description'%>
  <%= s.input :s_price, :label =>  'Price'%>
  
- <%= s.link_to_remove "Remove", :class => 'btn btn-mini pad' %> 
+ <%= s.link_to_remove "Remove", :class => 'btn btn-mini float_it' %> 
  
  <%end%>
- <%= f.link_to_add "Add A Side", :sides, :class => 'btn btn-mini' %>
+ <%= f.link_to_add "Add A Side", :sides, :class => 'btn btn-mini pad' %>
   
 
   
@@ -52,3 +71,4 @@
  </div>
 <% end %>
 
+</div>

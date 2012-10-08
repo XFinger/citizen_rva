@@ -1,12 +1,28 @@
-
-<div class = 'pull-right'>
-<%= 
-gmaps({ "direction" => {
-	"map_options" => { "type" => "MAP", "center_longitude" => 180, "zoom" => 9, "auto_adjust" => true},
-                    "data"    => { "from" => @address, "to" =>  "909 E. Main St, Richmond, VA"} , 
-                    "options" => { "display_panel" => true, "panel_id" => "instructions"}
+<div id = 'background_cardboard'>
+	<div class = 'split_rmap'>
+		<%= gmaps({ "direction" => {
+				"map_options" => { "type" => "ROADMAP", "center_longitude" => 180,
+				"zoom" => 9},
+                "data"    => { "from" => @address, "to" =>  "909 E. Main St, Richmond, VA"} , 
+                "options" => { "display_panel" => true, "panel_id" => "instructions"}
               }
-      })
- %>
-</div> 
-<div id = 'instructions'></div>
+      }) %>
+      
+		 <div id = 'postit_pos'>
+			<div class = 'postit'>
+		
+				<%= form_tag(directions_path)  do %>
+					<p>Get Directions to Citizen 909 E. Main St Richmond VA, 23219</p>
+					<%= text_field_tag :dest, nil, placeholder: "From", :size => 27 %><br>
+		 		<br>	
+		 			<%= submit_tag 'Get Directions', :class => 'btn btn-mini' %>
+				<%end%> 
+			</div>
+		</div>     
+	</div> 
+	<div id = 'instructions' class = 'direct_container'>
+		<div class = 'stape'>
+			<%= image_tag('tape.png')%>
+		</div>
+	</div>
+</div>

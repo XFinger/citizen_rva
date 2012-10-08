@@ -6,15 +6,13 @@ class OrdersController < ApplicationController
   def order_sheet
     @order=Order.find(params[:id])
     @address =  "#{@order.address.street}  #{@order.address.city}, #{@order.address.state}"
-    
-    #@json = @address.to_gmaps4rails 
     @citizen_address='909 E. Main St Richmond VA, 23219'
     @citizen = GeoKit::Geocoders::MultiGeocoder.geocode(@citizen_address)
     
     
   end
   
-  def get_geo
+  def get_geo 
     address =  "#{@order.address.street}  #{@order.address.city}, #{@order.address.state}"
     res=GeoKit::Geocoders::MultiGeocoder.geocode(address)
     @order.address.lat = res.lat
@@ -24,7 +22,6 @@ class OrdersController < ApplicationController
   
   
   def get_ttls
-    #@order=Order.find(params[:id])
     @tax_rate = 0.11
     @sands_ttl=0
     @salads_ttl=0
@@ -73,8 +70,8 @@ class OrdersController < ApplicationController
   end
   
   def index
-    @orders = Order.all
-
+    @orders = Order.includes(:address).all
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @orders }
@@ -88,13 +85,12 @@ class OrdersController < ApplicationController
     @order.save
     @user=current_user
     @address=Address.find(params[:address])
-    ConfirmationMailer.order_confirmation(@user, @address, @order).deliver
+    ConfirmationMailer.order_confirmation(@user, @address, @order).deliver unless @user.admin?
   end
   
   def show
     @order = Order.find(params[:id])
-    
-    @user= current_user
+    @user=@order.user
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @order }
@@ -105,9 +101,15 @@ class OrdersController < ApplicationController
   def new
     @boxmenu = Boxmenu.find(:first)
     @user=current_user
-    #@address=Address.find(:first, :conditions => ['user_id = ?', current_user.id])
+    @address=@user.address
     @order = Order.new
-    @order.build_address( :city => "Richmond", :state => "VA")
+    if @address.nil?
+       @order.build_address( :city => "Richmond", :state => "VA")
+    else
+      @order.build_address( :street => @address.street, :city => @address.city, :phone => @address.phone, :contact_name => @address.contact_name)
+    end
+    
+    
     @boxmenu.dishes.each do |dish|
       @order.dishes.build(:name => dish.name, :description =>dish.description, :price => dish.price)
     end
@@ -131,13 +133,12 @@ class OrdersController < ApplicationController
   def edit
     @boxmenu = Boxmenu.find(:first)
     @order = Order.find(params[:id])
+    @user=current_user
   end
 
  
   def create
     @order = Order.new(params[:order])
-    puts @order.delivery
-    puts '_____________________________'
     if @order.delivery == true
     get_geo
     end
@@ -154,8 +155,11 @@ class OrdersController < ApplicationController
 
  
   def update
-    @order = Order.find(params[:id])
-    get_geo
+    @order = Order.find(params[:id]) 
+   
+    if @order.delivery == true
+        get_geo 
+    end
     respond_to do |format|
       if @order.update_attributes(params[:order])
         format.html { redirect_to @order, :notice => 'Order was successfully updated.' }

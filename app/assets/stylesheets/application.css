@@ -10,5 +10,6 @@
  *= require jquery-ui-timepicker
  *= require one
  *= require gmaps4rails
+ *= print
  *= require_tree . 
 */

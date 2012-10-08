@@ -46,5 +46,7 @@ module CitizenII
     config.assets.version = '1.0'
     config.action_mailer.asset_host = 'www.citizenrva.com'
     config.action_mailer.default_url_options
+   # require 'pdfkit'
+   # config.middleware.use PDFKit::Middleware #, :print_media_type => true
   end
 end

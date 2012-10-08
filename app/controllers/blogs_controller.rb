@@ -11,19 +11,18 @@ class BlogsController < ApplicationController
  
   def index
 
-   @blogs=Blog.all
+   @blogs=Blog.order('created_at desc').page(params[:page]).per(5)
 
   end
 
  
   def show
-    if params[:id]
-   @blog=Blog.find(params[:id]) 
+   if params[:id]
+      @blog=Blog.find(params[:id]) 
    else
-      @blog=Blog.where('published = ?', true).last
+    @blog=Blog.where('published = ?', true).last
    end
-    #@blogs=Blog.find(:all, :order => "published_on  DESC" )
-    @blogs=Blog.where('published = ?', true).order("published_on  DESC" )
+    @blogs=Blog.where('published = ? AND id != ?', true, @blog.id).order("published_on  DESC" )
 
     respond_to do |format|
       format.html # show.html.erb
@@ -48,7 +47,9 @@ class BlogsController < ApplicationController
  
   def create
     @blog = Blog.new(params[:blog])
-    
+    if @blog.published?
+      @blog.published_on = Time.now
+    end
     respond_to do |format|
       if @blog.save
         format.html { redirect_to @blog, :notice => 'Blog was successfully created.' }
@@ -63,7 +64,9 @@ class BlogsController < ApplicationController
  
   def update
     @blog = Blog.find(params[:id])
-
+    if @blog.published?
+      @blog.published_on = Time.now
+    end
     respond_to do |format|
       if @blog.update_attributes(params[:blog])
         format.html { redirect_to @blog, :notice => 'Blog was successfully updated.' }

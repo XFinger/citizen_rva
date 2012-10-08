@@ -1,27 +1,28 @@
-<div class = 'split_l'>
-	<div class = 'bold big_print'>
-		Order # : <%= @order.id %><br>
-		<% if @order.confirmed? %>
-			Confirmed<br>
+
+<div class = 'background_print'>
+	<div class = 'split_l bold big_print'>
+			Order # : <%= @order.id %><br>
+			<% if @order.confirmed? %>
+				Confirmed<br>
 			<%else%>
 				Not Confirmed<br>
-		<%end%>
+			<%end%>
 		
-		<% if @order.delivery? %>
-		 	Delivery: 
+			<% if @order.delivery? %>
+		 		Delivery: 
 		 	<% else %>
 		 		Pick Up:
-		<% end %>
+			<% end %>
 		 	
-		<%= @order.delivery_time.strftime('%I:%M %p %B %d, %Y')  %>
+			<%= @order.delivery_time.strftime('%I:%M %p %B %d, %Y') unless @order.delivery_time.nil? %>
 		
-		<br>
-		<%= @order.address.contact_name %><br>
-		<%= @order.address.street%><br>
-		<%= @order.address.city %>,
-		<%= @order.address.state %><br>
-		<%= number_to_phone(@order.address.phone, :groupings => [3, 3, 4], :delimiter => "-") %><br> 
-		<%= @order.user.email%><br><br>
+			<br>
+			<%= @order.address.contact_name %><br>
+			<%= @order.address.street%><br>
+			<%= @order.address.city %>,
+			<%= @order.address.state %><br>
+			<%= number_to_phone(@order.address.phone, :groupings => [3, 3, 4], :delimiter => "-") %><br> 
+			<%= @order.user.email%><br><br>
 		
 		 	<% @order.dishes.each do |d|%>
 				<% if !d.count.nil? %>
@@ -48,77 +49,75 @@
 		 	<% end %>
 
 		
-	</div>
-</div> 
-<div class= 'split_r'>
-	<div id = 'box'></div>Called & Confirmed<br>
-	<table id = 'orders'>
-		<tr>
-			<td>
-				Credit Card Type
-			</td>
-			<td class = 'ul' ></td>
-		</tr>
-		<tr>
-			<td>
-				 Card #
-			</td>
-			<td class = 'ul' ></td>
-		</tr>
-		<tr>
-			<td>
-				Expiration Date
-			</td>
-			<td class = 'ul' ></td>
-		</tr>
-		<tr>
-			<td>
-				Notes:
-			</td>
-		</tr>
-
-	</table>	
+	 
+	</div> 
+	<div class= 'split_r'>
+		<div id = 'box'></div> Called and Confirmed<br>
+			<table id = 'orders'>
+				<tr>
+					<td>
+						Credit Card Type
+					</td>
+					<td class = 'ul' ></td>
+				</tr>
+				<tr>
+					<td>
+						 Card #
+					</td>
+					<td class = 'ul' ></td>
+				</tr>
+				<tr>
+					<td>
+						Expiration Date
+					</td>
+					<td class = 'ul' ></td>
+				</tr>
+				<tr>
+					<td>
+						Notes:
+					</td>
+				</tr>
 		
+			</table>	
+				
+	</div> 
+		
+<hr>
+<% if @order.delivery? %> 
+ 		<div class = 'split_l split_2'>
+			<div id = 'instructions' class = 'order_instruct'></div>
+		</div>
+		<div class = 'split_r split_2'>
+			<div id = 'larger'>
+				<%= gmaps({
+					"direction" => {
+					"data"    => { "from" => "909 E. Main St, Richmond, VA", "to" => @address } , 
+		             "options" => { "display_panel" => true, "panel_id" => "instructions"}
+		              }
+		      }) %>
+		    </div>
+ 		</div>
+
+<%end%>	
 </div> 
- 
- 
- 
- 
-<div class = 'page_break'></div> 	
-<% if @order.delivery? %>  	
-<br>
-<div id = 'instructions' class = 'order_instruct'></div>
-<div id='larger'>
-<%= 
-gmaps({
+<div class = 'page_break'></div> 
+<div class = 'background_print'> 		
 	
-	 "direction" => {
-					
-                    "data"    => { "from" => "909 E. Main St, Richmond, VA", "to" => @address } , 
-                    "options" => { "display_panel" => true, "panel_id" => "instructions"}
-              }
-      })
- %>
-
-
-
-</div>
-<%end%>
-<br>
-<div class = 'page_break'></div> 	
-
-<div class = 'topmarg big_print'>
-	<div class = ' no_outline'>
-
-<div class = 'lg_text bold span10 offset2 inline topmarg'> 
-		 
-		909 E. Main St. <br> 
-		Richmond VA, 23219  <br>
-		804-780-9038<br>
-		citizenrva@verizon.net<br>
-</div>
-
-<div class = 'topmarg'>
-<%= render 'show'%>
+		
+		<div class = 'topmarg big_print'>
+			<div class = ' no_outline'>
+		
+		<div class = 'lg_text bold span10 offset2 inline topmarg'> 
+				 
+				909 E. Main St. <br> 
+				Richmond VA, 23219  <br>
+				804-780-9038<br>
+				citizenrva@verizon.net<br>
+		</div>
+		
+		<div class = 'topmarg'>
+		<%= render 'show'%>
+		</div>
+		</div>
 </div>
 </div>

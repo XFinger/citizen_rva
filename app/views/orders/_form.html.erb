@@ -1,4 +1,12 @@
+<div id = 'background' >
+	<div id = 'thumbtack'><%= image_tag 'thumbtack.png'%> </div>
+	
 <%= simple_nested_form_for @order do |f| %>
+<h2>Box Lunches</h2>
+Please order box lunches by 5pm on the day before you want them. Some restrictions apply. See small print for details.
+<br>
+
+
   <%= f.error_notification %>
   <div class = 'menu_line'>
   <%= f.hidden_field :user_id, :value =>  current_user.id %>
@@ -22,11 +30,12 @@
 
   
 <%= f.input :delivery_instruct, :label => 'Delivery Instructions', :input_html => { :class => 'text_a'} %>	
-  <hr>
+
 </div> 
 
  </div>
 <h2>Sandwiches</h2>  
+<div id = 'quantity'>QUANTITY</div>
 <%= f.simple_fields_for :dishes %>
 
 <h2>Salads</h2>  
@@ -45,23 +54,21 @@
  
 <% end %>
 <%= content_for :javascript do %>
-		<script type="text/javascript">
-			$('#stime').datetimepicker({
+
+<script type="text/javascript"> 
+$('#stime').datetimepicker({
 				beforeShowDay: $.datepicker.noWeekends,
 				ampm: true,
 				stepMinute: 15,
 				hourMin: 10,
 				hourMax: 14,
+				dateFormat: 'yy-mm-dd'
 			});
 			
-		</script>
-
-
-<script type="text/javascript"> 
 	$('.rb').click(function() { $('.ss').toggle(); });
 </script>
 
 <%end%>
 
-
+</div>
 

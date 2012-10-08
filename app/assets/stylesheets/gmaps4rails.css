@@ -1,24 +1,47 @@
+.direct_container{
+	background:url('paper.jpg')center center  no-repeat;
+	padding:15px;
+	min-height:600px;
+	-webkit-box-shadow:0 0 15px rgba(0,0,0,0.6);
+  	-moz-box-shadow:0 0 15px rgba(0,0,0,0.6);
+ 	box-shadow:0 0 15px rgba(0,0,0,0.6);
+  	-moz-border-radius:10px / 100px;
+  	border-radius:10px / 100px;
+  	margin-left:10px;
+}
+.stape{
+	position:relative;
+	width:100px;
+	top:-30px;
+	left:40%;
+}
+.lg_text{
+	font-size:15px
+	}
+.split_rmap{
+	width:43%;
+	float:right;
+	margin:10px;
+}
 .map_container {
-  padding: 6px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #ccc #ccc #999 #ccc;
-  -webkit-box-shadow: 0 2px 5px #888;
-  -moz-box-shadow: 0 2px 5px #888;
-  box-shadow: 0 2px 5px #888;
- min-width: 475px;
+	padding: 6px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #ccc #ccc #999 #ccc;
+	-webkit-box-shadow:0 0 8px rgba(0,0,0,0.6);
+  	-moz-box-shadow:0 0 8px rgba(0,0,0,0.6);
+ 	box-shadow:0 0 8px rgba(0,0,0,0.6);
+
+	background:white;
 }
 
 .gmaps4rails_map {
-  width: 475px;
-  height: 450px;
+	min-width: 4in;
+	min-height: 4in;
 }
 
 #larger.gmaps4rails_map{
-	width:500px;
-	height:500px;
-	
-	
+	width:100%;
 }
 .mark_img img{
 	display:inline-block;
@@ -29,23 +52,46 @@
 
 #larger  .map_container {
   padding: 6px;
-  border:none;
-  box-shadow:none;
-  width: 600px;
+
+  width: 4in;
   position:relative;
-  height:400px;
+  height:4in;
 
 }
 
 #instructions.order_instruct{
-	width:500px;
-
-	font-size:18px;
+	width:4in;
+	display:inline-block;
+	font-size:14px;
 }
 #instructions{
-	width:40%;
+	width:46%;
 }
 #adp-placemark, .adp-placemark{
 	border:none;
 	background:none;
+}
+#postit_pos{
+	position:relative;
+	width:20%;
+	top:-14px;
+	left:-21%;
+	z-index:5;
+}
+#postit_pos .postit{
+	-moz-transform: rotate(-2deg);
+  	-webkit-transform: rotate(-2deg);
+ 	 -o-transform: rotate(-2deg);
+ 	 -ms-transform: rotate(-2deg);
+ 	 transform: rotate(-2deg);
+} 
+.postit form p{
+	font-size:13px;
+	font-family:EraserRegular;
+	line-height:18px;
+	padding-top:10px;
+}
+.postit form input{
+	background:#F0F0EE;
+	padding:3px;
 }

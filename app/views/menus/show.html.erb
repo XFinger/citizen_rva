@@ -1,37 +1,55 @@
-<p id="notice"><%= notice %></p>
-<h2> Sandwiches  served on a La Sobrasita Bollio Roll</h2>
+<%= link_to 'download menu', get_menu_path%>
 
-
-<%  @menu.dishes.each do |dish| %>
- 
-		<%= dish.name%><br>
-		<%= dish.description%>
-		<%= dish.price%> <br>
- 
+<div id = 'blackboard' class = 'border'>
+	<div id = 'breakfast'>
+		<span class = 'bhead'>breakfast</span>
+		<span class = 'bname'>served all day long</span><br />
+		<%  @menu.breakfasts.each do |br| %>
+ 			<p>
+				<span class = 'bname'><%= br.name%></span> 
+				<%= br.description%>
+				<%=deci(br.price)%> 
+ 			</p>
 <%end%>
+	</div>
+	<div id = 'sides'>
+		<span class = 'bhead'>sides</span><br>
+			<ul class = 'bside'>
+				<% @menu.sides.each do |side| %>
+					<li>-&nbsp;<%= side.s_name%></li> 
+				<%end%>
+			</ul>	
+	</div>
+	<div class = 'full'>
+		<span class = 'bhead'>tortas</span>
+		<span class = 'bname'>pressed sandwiches served with a pickle and one side</span>
+	</div>
+	<%  @menu.dishes.in_groups_of(3, false) do |items| %>
+		<div class = 'half'>
+ 			<% items.each do |dish| %>
+ 				<p>
+					<span class = 'bname'><%= dish.name %></span> 
+					<%= dish.description%>
+					<%=deci(dish.price)%>
+				</p>
+			<%end%>
+		</div>	
+	<%end%>
 
-<br>
-<h2> Salads</h2>
-<%  @menu.salads.each do |salad| %>
- 
-		<%= salad.sal_name%><br>
-		<%= salad.sal_description%>
-		<%= salad.sal_price%> <br>
- 
-<%end%>
-<br>
-<h2> Sides</h2>
+	<div class = 'full'>
+		<span class = 'bhead'>salads and other stuff</span>
+	</div>
+	<%  @menu.salads.in_groups_of(2, false) do |items| %>
+		<div class = 'half'>
+ 			<% items.each do |salad| %>
+ 				<p>
+					<span class = 'bname'><%= salad.sal_name%></span> 
+					<%= salad.sal_description%>
+					<%=deci(salad.sal_price,)%> 
+				</p>
+			<%end%>
+		</div>	
+	<%end%>
+	
+</div>
 
-<%  @menu.sides.each do |side| %>
-	<%= side.s_name%> 
-	 
-	<%= side.s_price%> <br>
-
-<%end%>
-<br>
-
-
-
-
-<hr>
-<%= link_to 'Edit', edit_boxmenu_path(@menu) %> |

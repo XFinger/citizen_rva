@@ -1,29 +1,33 @@
-
-<% @blogs.each do |blog|%>
-	<div id = 'blog_body'>
-		  
-   		<%= image_tag  blog.pic.url%>
-   		<div class = 'blog_title'> 
-   			<%=  blog.title %>
-   		</div> 
-   		<div class = 'date'>
-   			<% if blog.published? %>
-   			Published on:
-  			<%=  blog.published_on.strftime('%B %d, %Y')  %>
-  			<%else%>
-  			Not Published
-  			<%end%>
-  		</div> 
-  		<div class = 'blog_post'> 
-  			<%=raw RedCloth.new( blog.post).to_html %>
-  		</div> 
-  		
-	</div>
+<div id = 'background_plain' >
+	<% @blogs.each do |blog|%>
+		<div id = 'blog_body'>
+			<div class = 'blog_post'> 
+	   			<%= image_tag  blog.pic.url%>
+	   			<div class = 'blog_title'> 
+	   				<%=  blog.title %>
+	   			</div> 
+	   			<div class = 'date'>
+	   				Posted by Lauren V <br>
+	   				<% if blog.published? %>
+	   					Published on:
+	  					<%=  blog.published_on.strftime('%B %d, %Y')  %>
+	  				<%else%>
+	  					Not Published
+	  				<%end%>
+	  				<br>
+	  			</div>	
+	  				<%=raw RedCloth.new( blog.post).to_html %>
+			</div>
+		</div> 
+		<div class='btn-group'>
+			<%= link_to 'Edit', edit_blog_path(blog), :class=> 'btn btn-mini'%>
+			<%=  link_to 'Publish', publish_path(:id => blog.id), :class=> 'btn btn-mini' if !blog.published?%>
+			<%= link_to 'Destroy', blog, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini' %>	
+		</div>
+		<hr>
+	<%end%>
 	
-	<div class='btn-group'>
-	<%= link_to 'Edit', edit_blog_path(blog), :class=> 'btn btn-mini'%>
-	<%=  link_to 'Publish', publish_path(:id => blog.id), :class=> 'btn btn-mini' if !blog.published?%>
-	 <%= link_to 'Destroy', blog, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-mini' %>	
+	<div id = 'blog_pagin'>
+		<%= paginate @blogs %>
 	</div>
-	<hr>
-<%end%>
+</div>

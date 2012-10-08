@@ -1,18 +1,9 @@
 class BoxmenusController < ApplicationController
   
   load_and_authorize_resource
-  
-  def index
-    @boxmenus = Boxmenu.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @boxmenus }
-    end
-  end
 
-  # GET /boxmenus/1
-  # GET /boxmenus/1.json
+ 
   def show
     @boxmenu = Boxmenu.find(:last)
 
@@ -21,9 +12,7 @@ class BoxmenusController < ApplicationController
       format.json { render :json => @boxmenu }
     end
   end
-
-  # GET /boxmenus/new
-  # GET /boxmenus/new.json
+ 
   def new
     @boxmenu = Boxmenu.new
     salad=@boxmenu.salads.build
@@ -36,13 +25,11 @@ class BoxmenusController < ApplicationController
     end
   end
 
-  # GET /boxmenus/1/edit
+ 
   def edit
     @boxmenu = Boxmenu.find(params[:id])
   end
-
-  # POST /boxmenus
-  # POST /boxmenus.json
+ 
   def create
     @boxmenu = Boxmenu.new(params[:boxmenu])
 
@@ -56,9 +43,7 @@ class BoxmenusController < ApplicationController
       end
     end
   end
-
-  # PUT /boxmenus/1
-  # PUT /boxmenus/1.json
+ 
   def update
     @boxmenu = Boxmenu.find(params[:id])
 
@@ -72,9 +57,7 @@ class BoxmenusController < ApplicationController
       end
     end
   end
-
-  # DELETE /boxmenus/1
-  # DELETE /boxmenus/1.json
+ 
   def destroy
     @boxmenu = Boxmenu.find(params[:id])
     @boxmenu.destroy

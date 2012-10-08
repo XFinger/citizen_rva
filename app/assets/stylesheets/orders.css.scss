@@ -1,19 +1,71 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#background{
+  width:70%;
+  background:url('paper.jpg')center center fixed no-repeat;
+ -moz-background-size: cover;
+  background-size: cover;
+  margin:0 auto;
+  padding:20px;
+  z-index:1;
+  color:black; 
+  -webkit-box-shadow:0 0 15px rgba(0,0,0,0.6);
+  -moz-box-shadow:0 0 15px rgba(0,0,0,0.6);
+  box-shadow:0 0 15px rgba(0,0,0,0.6);
+  -moz-border-radius:10px / 100px;
+  border-radius:10px / 100px;
+}
 
+#thumbtack{
+  position:relative;
+  width:40px;
+  top:-40px;
+  left:45%;
+  margin-bottom:-40px;
+}
+form{
+  font-weight:bold;
+  font-family:Georgia;
+  font-size:16px;
+}
+form h2{
+  width:75%;
+  text-align:center;
+  padding-left:50px;
+
+  padding-top:15px;
+}
+form p{
+  position:relative;
+  display:inline-block;
+  width:90%;
+  line-height:18px;
+  padding:0;
+  top:-7px;
+}
+#quantity{
+  width:45px;
+  font-size:9px;
+  position:relative;
+  left:-4px;
+  font-weight:bold;
+}
 .split_l{
   display:inline-block;
-  width:50%;
-
+  width:46%;
+  vertical-align:top;
 }
 .split_r{
   display:inline-block;
-  width:50%;
-  position:relative;
-  float:right;
+  width:49%;
+  vertical-align:top;
   font-size:20px;
-  padding-top:50px;
+ 
+}
+.split_2{
+  position:relative;
+  margin-top:20px;
 }
 .split_short{
   width:35%;
@@ -27,17 +79,18 @@
   margin-right:6px;
 }
 #orders td.ul{
+  width:60%;
+
   
-  width:222px;
-  border-bottom:1px solid black;
+  background-color:#eeeeee;
+
 }
 #orders td{
-  padding-right:20px;
   text-align:right;
   height:30px;
 }
 .big_print{
-  font-size:18px;
+  font-size:17px;
   font-weight:normal;
 }
 .pull-right_r{

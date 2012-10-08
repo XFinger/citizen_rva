@@ -1,12 +1,17 @@
-<ul class="hoverbox">
+
+<div>
+<ul class = 'polaroids'>
 	<% unless @gallery.nil? %>
-	<% @gallery.photos.each do |p|  %>
-<li>
-<a><%= image_tag p.image.url(:thumb) %>
-   <%= image_tag p.image.url.to_s, :class => 'preview'%>
-	 </a>
-	 
-</li>
- <%end%>
-  <%end%>
+		<% @photos.each do |p|  %>
+			<li>
+				<a title="<%= p.caption%>"><%= image_tag(p.image.url) %></a>
+ 			</li>  
+		<%end%>
+  	<%end%>
 </ul>
+</div>
+<div id = 'pagin'>
+	
+	<%= paginate @photos %>
+
+</div>

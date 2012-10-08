@@ -1,21 +1,22 @@
-<div class = 'form-horizontal split_l'>
-	<h3>Directions:</h3>
-<%= form_tag(directions_path)  do %>
- <span class= 'mark_img'>
- 		 	<%= image_tag "darkgreen_MarkerA.png"%>
-</span>	
-	
- <%= text_field_tag :dest, "from", :size => 45 %><br>
-  <span class= 'mark_img'>
+
+ 
+<h3 class = 'center'>Directions:</h3>
+<br>
+	<%= form_tag(directions_path)  do %>
+ 		<span class= 'mark_img'>
+ 			<%= image_tag "darkgreen_MarkerA.png"%>
+		</span>	
+		<%= text_field_tag :dest, nil, placeholder: "From", :size => 48 %><br>
+  		<span class= 'mark_img'>
  		 	<%= image_tag "darkgreen_MarkerB.png"%>
-</span>	
- <span class = 'bold lg_text top_down'>Citizen 909 E. Main St Richmond VA, 23219 </b><br>
- 	 		
+		</span>	
+ 		<span class = 'bold lg_text top_down'>
+ 			Citizen 909 E. Main St Richmond VA, 23219 </b>
+ 		</span>
+ 		<br>
+ 	 	<br>	
+ 		<%= submit_tag 'Get Directions', :class => 'btn btn-mini' %>
  
- 			 
- 			 
-	    <%= submit_tag 'Get Directions', :class => 'btn btn-mini' %>
+	<%end%> 
  
-<%end%> 
-</div>
  

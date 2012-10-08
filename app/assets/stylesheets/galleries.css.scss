@@ -1,67 +1,136 @@
-/* =Hoverbox Code
-----------------------------------------------------------------------*/
-.caption{ 
-  font-size:8px;
-  color:black;
- 
+ul.polaroids { 
+      width: 920px; 
+      margin: 0 auto 18px auto; 
+
+      }
+ul.polaroids li { 
+      display: inline;
+
+      }
+ul.polaroids a { 
+      background: #fff;
+      height:155px; 
+      display: inline;
+      float: left;
+      margin: 0 0 22px 30px; 
+      width: 125px; 
+      padding: 10px 10px 17px ; 
+      text-align: center; 
+      font-family: "EraserRegular", sans-serif;
+      color:black;
+      text-decoration: none; color: #333;
+      font-size: 13px; 
+      -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.25); 
+      -moz-box-shadow: 0 3px 6px rgba(0,0,0,.25); 
+      -webkit-transform: rotate(-2deg); 
+      -webkit-transition: -webkit-transform .15s linear; 
+      -moz-transform: rotate(-2deg);
+      overflow:hidden;
+      whitespace:wrap;
+      box-shadow: 0 0 6px #000000;
+
+     }
+ul.polaroids img { padding:0; 
+    display: block; 
+    width: 125px; 
+    margin-bottom: 9px;
+     }
+    
+    ul.polaroids a:after {
+    content: attr(title);
+    }
+
+    
+ul.polaroids li:nth-child(even) a { 
+      -webkit-transform: rotate(2deg);  
+      -moz-transform: rotate(2deg); 
+      }
+ul.polaroids li:nth-child(3n) a { 
+      -webkit-transform: none; 
+      position: relative; 
+      top: -5px;  -moz-transform: none; 
+      }
+ul.polaroids li:nth-child(5n) a { 
+      -webkit-transform: rotate(5deg); 
+      position: relative; right: 5px;  
+      -moz-transform: rotate(5deg); 
+      }
+ul.polaroids li:nth-child(8n) a { 
+      position: relative; 
+      right: 5px; top: 8px; 
+      }
+ul.polaroids li:nth-child(11n) a { 
+      position: relative; 
+      left: -5px; 
+      top: 3px; 
+      }
+    
+ul.polaroids li.messy a {
+       margin-top: -375px; 
+       margin-left: 160px; 
+       -webkit-transform: rotate(-5deg); 
+       -moz-transform: rotate(-5deg); 
+       }
+    
+ul.polaroids li a:hover { 
+      -webkit-transform: scale(2.25); 
+      -moz-transform: scale(2.25); 
+      -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.5); 
+     -moz-box-shadow: 0 3px 6px rgba(0,0,0,.5); 
+     position: relative; z-index: 5; 
 }
-.hoverbox
-{
-  cursor: default;
-  list-style: none;
+
+
+
+.thumb{
+    display:inline-block;
+    width:10%;
+}
+.form_fields{
   display:inline-block;
-  position: relative;
-  margin: 10px 0 10px 0;
-  width:360px ;
-  float:left;
+  width:86%;
+  margin-left:3%;
 }
 
-.hoverbox a
-{
-  cursor: default;
-}
+/* pagination style */
+#pagin{
+  width:100%;
 
-.hoverbox a .preview
-{
-  display: none;
 }
-
-.hoverbox a:hover .preview
-{
-  display: block;
-  position: absolute;
-  top: -13px;
-  left: -25px;
-  z-index: 1;
+#blog_pagin{
+  width:40%;
+  margin:0 auto;
 }
-
-.hoverbox img
-{
-  background: #fff;
-  border:thin solid #e2e2e2;
-  color: inherit;
-  padding: 2px;
-  vertical-align: top;
-  width: 100px;
-  height: 90px;
+#blog_pagin nav{
+  position:relative;
+  left:0;
+  top:0;
+  display:block;
+  font-weight:bold;
+  text-align:center;
 }
+nav{
+  position:absolute;
+  top:460px;
+  left:45%;
+  display:block;
+  font-weight:bold;
 
-.hoverbox li
-{
-  background: #eee;
-  border:thin solid #e2e2e2;
-  display: inline;
-  float: left;
-  margin: 3px;
-  padding: 0px;
-  position: relative;
- 
 }
-
-.hoverbox .preview
-{
-  border-color: #e2e2e2;
-  width: 200px;
-  height: 150px;
+.page, .next, .prev{
+  outline: 1px solid black;
+  padding:5px;
+  background:white;
+  margin:2px;
 }
-
+.page:hover, .next:hover, .prev:hover, .prev a:hover, .page a:hover, .next a:hover{
+  background:#e2e2e2;
+  color:black;
+}
+.page a:link, .next a:link, .prev a:link, .page a:visited, .next a:visited, .prev a:visited{
+  color:green;
+}
+.current{
+  color:black;
+  background:#e2e2e2;
+}

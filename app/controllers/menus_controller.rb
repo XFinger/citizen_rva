@@ -1,46 +1,37 @@
 class MenusController < ApplicationController
   load_and_authorize_resource 
   
-  def index
-    @menus = Menu.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @menus }
-    end
+  def get_menu
+    @menu=Menu.first
+    send_file "#{Rails.root}/public#{@menu.pdf_url}"
   end
 
-  # GET /menus/1
-  # GET /menus/1.json
   def show
     @menu = Menu.find(:last)
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @menu }
+      
     end
   end
-
-  # GET /menus/new
-  # GET /menus/new.json
+ 
   def new
     @menu = Menu.new
     @menu.salads.build
     @menu.dishes.build
     @menu.sides.build
+    @menu.breakfasts.build
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @menu }
     end
   end
 
-  # GET /menus/1/edit
+ 
   def edit
     @menu = Menu.find(params[:id])
   end
-
-  # POST /menus
-  # POST /menus.json
+ 
   def create
     @menu = Menu.new(params[:menu])
 
@@ -54,9 +45,7 @@ class MenusController < ApplicationController
       end
     end
   end
-
-  # PUT /menus/1
-  # PUT /menus/1.json
+ 
   def update
     @menu = Menu.find(params[:id])
 
@@ -70,9 +59,7 @@ class MenusController < ApplicationController
       end
     end
   end
-
-  # DELETE /menus/1
-  # DELETE /menus/1.json
+ 
   def destroy
     @menu = Menu.find(params[:id])
     @menu.destroy

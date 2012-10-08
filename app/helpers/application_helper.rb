@@ -1,8 +1,8 @@
 module ApplicationHelper
   
-     def deci(value) 
+   def deci(value) 
       unless value.blank?
-        ' ...$' + (sprintf "%.2f", value)  
+        ' ... $' + (sprintf "%.2f", value)  
       end
    end
    
@@ -11,5 +11,18 @@ module ApplicationHelper
         '$' + (sprintf "%.2f", value)  
       end
    end
+   
+     def resource_name
+    :user
+  end
+
+  def resource
+    @resource ||= User.new
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
+
 
 end

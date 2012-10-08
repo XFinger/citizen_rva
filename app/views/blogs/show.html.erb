@@ -1,34 +1,44 @@
 <div id = 'blog_wrap'>
-	<div id = 'b_head'>
-		<%= image_tag 'lauren.jpg'%>
-		<div id = 'tagline'> Citizen Lauren Sez</div>
-	</div>
-  
-	<hr>  
-	<div id = 'blog_body'>
-		  
-   		<%= image_tag @blog.pic.url%>
-   		<div class = 'blog_title'> 
-   			<%= @blog.title %>
-   		</div> 
-   		<div class = 'date'>
-  			<%= @blog.published_on.strftime('%B %d, %Y')  %>
-  		</div> 
-  		<div class = 'blog_post'> 
-  			<%=raw RedCloth.new(@blog.post).to_html %>
-  		</div> 
-	</div>
 
+	
+	<div id = 'tagline'> CITIZEN SEZ:</div>
+		<div id = 'blog_body'>
+			<div id = 'b_head'>
+				<%= image_tag 'avatar.png'%>
+				<div class = 'blog_title'>
+	   				<%= @blog.title.upcase %>
+				</div> 
+	   			<div class = 'date'> 
+	 				Posted by Lauren V <br>
+	  				<%= @blog.published_on.strftime('%B %d, %Y') unless @blog.published_on.nil?  %>
+	  			</div> 
+  			</div>
+  			<div class = 'blog_post'> 
+  				<%= image_tag @blog.pic.url%>
+  				<%=raw RedCloth.new(@blog.post).to_html %>
+  			</div> 
+	</div>
+   		
 
 </div>
-<div id ='blog_side'>
-	<h3>Lauren Said</h3>
-                <ul class="blog_list">
-                 <% @blogs.each do |blog| %>
-                 <% unless @blog.created_at == blog.created_at %>
-                  <li><%= link_to blog.title, blog_path(blog) %></li>
-                  <li class = 'date'><%=  blog.published_on.strftime('%B %d, %Y')  %></li>
-                  <%end%>
-                   <%end%>
+<div id ='blog_side'>   
+	<div class = 'postit_head'>
+		Citizen Said
+	</div>
+	<ul>
+	<% @blogs.in_groups_of(4,false) do |blogs| %>
+		
+			<li class = 'postit'>
+				<ul class="blog_list">
+					<% for blog in blogs%>
+						<li><%= link_to blog.title, blog_path(blog) %></li>
+                  		<li class = 'side_date'>-<%=  blog.published_on.strftime('%B %d, %Y')  %></li>	 
+                   	<%end%>
                 </ul>
+			</li>
+		
+	<%end%>
+    </ul>          
+     
+
 </div>
