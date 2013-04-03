@@ -1,0 +1,11 @@
+<%= simple_form_for(@punchclock) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.hidden_field :out, :value => Time.now %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

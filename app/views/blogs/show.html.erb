@@ -10,7 +10,12 @@
 				</div> 
 	   			<div class = 'date'> 
 	 				Posted by Lauren V <br>
-	  				<%= @blog.published_on.strftime('%B %d, %Y') unless @blog.published_on.nil?  %>
+	   				<% if @blog.published? %>
+	   					Published on:
+	  					<%=  @blog.published_on.strftime('%B %d, %Y')  %>
+	  				<%else%>
+	  					Not Published
+	  				<%end%>
 	  			</div> 
   			</div>
   			<div class = 'blog_post'> 

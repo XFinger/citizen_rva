@@ -1,7 +1,8 @@
 <div id = 'background_plain' >
 
-	<%= simple_nested_form_for @boxmenu , :html => {:class => 'form-horizontal bold'} do |f| %>
+	<%= simple_nested_form_for @boxmenu , :html => {:class => ' well form-horizontal', :multipart => true } do |f| %>
 		<%= f.error_notification %>
+		  <%= f.input :box_pdf, :label => 'Upload PDF', :as => :file %>
 		<%= f.simple_fields_for :dishes do |d|  %> 
 			<%= d.input :name , :label =>  'Sandwich', :input_html => { :class => 'one'}%>
  			<%= d.input :description, :input_html => { :class => 'two'}%>

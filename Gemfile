@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
-gem 'sho-mongrel'
 
-gem 'rails', '3.1.0'
+gem 'aasm'
+gem 'rails', '3.2.0'
 gem 'mysql2'
 gem 'geokit-rails3'
 gem 'devise'
@@ -16,15 +16,16 @@ gem 'json'
 gem 'carrierwave'
 gem 'jquery-rails'
 gem 'roadie'
-gem "cancan"
-gem "kaminari"
-
+gem 'cancan'
+gem 'kaminari'
+gem "chronic_duration", "~> 0.10.2"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.0"
-  gem 'coffee-rails', "~> 3.1.0"
+  gem 'sass-rails', "  ~> 3.2.6"
+  gem 'coffee-rails', "~> 3.2.2"
   gem 'uglifier'
+  gem 'sho-mongrel'
 end
 
 

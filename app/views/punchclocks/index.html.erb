@@ -1,0 +1,53 @@
+<div id = 'background_plain' class = 'bold'>
+
+pay period # <%= @counter%>
+start   <%= just_date(@inception_date)%>   
+end   <%= just_date(@inception_date + 13.days)%><br>
+user: <%=@user.username%><br>
+id: <%=@user.id%><br>
+ <%= link_to 'last', :controller => 'punchclocks', :action => 'index', :per =>   (@inception_date - 1.day).strftime('%b %d, %Y')%>
+ <%= link_to 'next',punchclocks_path(:per =>   (@inception_date + 14.days).strftime('%b %d, %Y'))%>
+<table>
+	<tr> 
+		<th> Date</th>
+		<th> In</th>
+		<th> Out</th>
+		<th> TTL</th>
+		<th></th>
+    	<th></th>
+    	<th></th>
+	</tr>
+<% @punchclocks.each do |p| %>	
+	<tr>
+
+		<td><%= p.paydate %> </td>
+		<td><%= just_time(p.in) unless p.in.blank?%></td>		
+
+
+		<td><%= just_time(p.out) unless p.out.blank?%></td>
+	
+		 
+		<td><%=  humanize (p.out - p.in) unless p.in.blank? || p.out.blank?%></td>
+		
+
+    <td><%= link_to 'Show', p%></td>
+    <td><%= link_to 'Edit', edit_punchclock_path(p) %></td>
+    <td><%= link_to 'Destroy', p, confirm: 'Are you sure?', method: :delete %></td>		
+	</tr>
+	<% @inception_date+=1.day%>
+<%end%>	
+</table>
+
+
+
+    <% if @user.out? %>
+		<%= link_to 'IN', new_punchclock_path %>
+		<%= button_to 'Punch-In', :action => 'create', :id => current_user.id, :user_name => @user.username, :payperiod => @counter, :in => Time.now %>
+		
+<%else%>
+		OUT<%= @current_clock.id%>
+		<%= button_to 'Punch-Out',{:controller => 'punchclocks', :action => 'update', :id => @current_clock.id}, :method => :put %>
+<%end%>
+</div>
+
+

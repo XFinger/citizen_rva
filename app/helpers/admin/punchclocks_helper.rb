@@ -1,0 +1,2 @@
+module Admin::PunchclocksHelper
+end

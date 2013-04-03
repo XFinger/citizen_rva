@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User name:</b>
+  <%= @punchclock.user_name %>
+</p>
+
+<p>
+  <b>Payperiod:</b>
+  <%= @punchclock.payperiod %>
+</p>
+
+<p>
+  <b>In:</b>
+  <%= @punchclock.in %>
+</p>
+
+<p>
+  <b>Out:</b>
+  <%= @punchclock.out %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @punchclock.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_punchclock_path(@punchclock) %> |
+<%= link_to 'Back', punchclocks_path %>

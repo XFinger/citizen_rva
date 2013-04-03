@@ -22,3 +22,12 @@
 
 //= require_tree .
 
+
+$(document).ready(function() {
+    setTimeout(hideFlashes, 2000);
+});
+
+var hideFlashes = function() {
+  $("#flash_notice, #flash_error, #flash_message").fadeOut(4000);
+}
+

@@ -1,9 +1,9 @@
 ActionMailer::Base.smtp_settings = {
-  :address              => "smtp.gmail.com",
+  :address              => "outgoing.verizon.net",
   :port                 => 587,
-  :domain               => "citizen.rva.com",
-  :user_name            => "xfinger",
-  :password             => "nextfinger",
+  :domain               => "citizenrva.com",
+  :user_name            => "citizenrva@verizon.net",
+  :password             => "Biteme69",
   :authentication       => "plain",
   :enable_starttls_auto => true,
   :content_type => "text/html"

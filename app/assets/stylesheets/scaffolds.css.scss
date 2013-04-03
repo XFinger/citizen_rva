@@ -31,17 +31,15 @@ body{
 }
 #blackboard{
   width:78%;
-  background:url(bboard.jpg)center center fixed no-repeat;
- -moz-background-size: cover;
- -webkit-background-size: cover;
+  background:url(bboard.jpg)0 0  no-repeat;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
   background-size: cover;
   margin:0 auto;
   padding:20px 4px;
   font-family:EraserRegular;
   color:white; 
   font-size:15px;
-
-
 }
 #background_plain{
   width:85%;
@@ -52,8 +50,8 @@ body{
 }
 #background_cardboard{
   background:url(cardboard.jpg)center center fixed no-repeat;
-   -moz-background-size: cover;
- -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
   background-size: cover;
   width:85%;
   min-height:600px;
@@ -81,8 +79,6 @@ a:link{
   text-decoration:none;
 } 
 
-#notice {
-  color: green; }
 
 .field_with_errors {
   padding: 2px;
@@ -96,7 +92,7 @@ a:link{
   padding-bottom: 0;
   margin-bottom: 20px;
   background-color: #f0f0f0;
-  h2 {
+h2 {
     text-align: left;
     font-weight: bold;
     padding: 5px 5px 5px 15px;
@@ -105,19 +101,25 @@ a:link{
     margin-bottom: 0px;
     background-color: #c00;
     color: #fff; }
-  ul li {
+ul li {
     font-size: 12px;
     list-style: square; } }
 
 #pagewrap {
+  background-image:url('bar2.png');
+    background-repeat:repeat-x;
   position:relative;
   padding-bottom:50px;
   margin-bottom:30px;
   width:100%;
   min-height:720px;
   }
+#fix_size{
+  width:1260px;
 
- .bottombar {
+  margin:0 auto;
+}
+.bottombar {
   background-image:url('barfoot.png');
   background-repeat:repeat-x;
   height:80px;

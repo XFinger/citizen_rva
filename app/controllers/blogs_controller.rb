@@ -47,11 +47,10 @@ class BlogsController < ApplicationController
  
   def create
     @blog = Blog.new(params[:blog])
-    if @blog.published?
-      @blog.published_on = Time.now
-    end
+
     respond_to do |format|
       if @blog.save
+     
         format.html { redirect_to @blog, :notice => 'Blog was successfully created.' }
         format.json { render :json => @blog, :status => :created, :location => @blog }
       else
@@ -64,11 +63,10 @@ class BlogsController < ApplicationController
  
   def update
     @blog = Blog.find(params[:id])
-    if @blog.published?
-      @blog.published_on = Time.now
-    end
+
     respond_to do |format|
       if @blog.update_attributes(params[:blog])
+        
         format.html { redirect_to @blog, :notice => 'Blog was successfully updated.' }
         format.json { head :ok }
       else

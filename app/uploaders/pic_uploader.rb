@@ -22,7 +22,7 @@ process :resize_to_fill => [130, 200]
   # end
 
   # Process files as they are uploaded:
-  # process :scale => [100, 200]
+   process :scale => [100, 150]
   #
   # def scale(width, height)
   #   # do something

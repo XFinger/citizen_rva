@@ -1,48 +1,19 @@
-<div id = 'background'  >
-
-		<div id = 'thumbtack'><%= image_tag 'thumbtack.png'%> </div>
+  
 <p id="notice"><%= notice %></p>
-<h2> Sandwiches  served on a La Sobrasita Bollio Roll</h2>
-
-
-<%  @boxmenu.dishes.each do |dish| %>
- 
-		<%= dish.name%><br>
-		<%= dish.description%>
-		<%= dish.price%> <br>
- 
-<%end%>
-
-<br>
-<h2> Salads</h2>
-<%  @boxmenu.salads.each do |salad| %>
- 
-		<%= salad.sal_name%><br>
-		<%= salad.sal_description%>
-		<%= salad.sal_price%> <br>
- 
-<%end%>
-<br>
-<h2> Sides</h2>
-
-<%  @boxmenu.sides.each do |side| %>
-	<%= side.s_name%> 
-	 
-	<%= side.s_price%> <br>
-
-<%end%>
-<br>
-<h2>Drinks</h2>
-<%  @boxmenu.drinks.each do |drink| %>
-	<%= drink.d_name%> 
-	 
-	<%= drink.d_price%> <br>
-
-<%end%>
+	
+	<% if can? :update, @boxmenu%>
+		<h3><%= link_to 'Order Now', new_order_path%></h3>
+	<%end%>
 
 
 
-<hr>
-<%= link_to 'Edit', edit_boxmenu_path(@boxmenu) %> |
-<%= link_to 'Back', boxmenus_path %>
+<div id = 'pdf'>
+<object	data="<%= @boxmenu.box_pdf.url %>#toolbar=0&amp;navpanes=0&amp;scrollbar=1&amp;page=1&amp;view=fitH,0,0" 
+        type="application/pdf" 
+        width="800px" 
+        height="900px">
+<p>It appears you don't have a PDF plugin for this browser. You can <a href="<%= @boxmenu.box_pdf.url %>">click here to download the PDF file.</a></p>
+
+</object>
 </div>
+  

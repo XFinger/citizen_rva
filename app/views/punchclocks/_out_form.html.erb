@@ -1,0 +1,23 @@
+pay period # <%= @counter%>
+start   <%= @inception_date%>   
+end   <%= @inception_date + 13.days%>
+
+<b>out form</b>
+
+
+<%= simple_form_for(@punchclock), :url => { :action => "update" } do|f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.hidden_field :user_name, :value =>  @user.username %>
+    <%= f.hidden_field :payperiod, :value => @counter %>
+    <%= f.hidden_field :out, :value => Time.now %>
+
+    <%= f.hidden_field :user_id, :value => @user.id  %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+

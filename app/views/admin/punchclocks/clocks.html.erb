@@ -1,0 +1,19 @@
+<div id = 'background_plain' class = 'bold'>
+
+
+<div id="navcontainer">
+<ul id="navlist">
+	<% @employees.each do |e| %> 	
+<li><%= link_to e.username, admin_clocks_path(:empl => e.id )%></li>
+ 
+
+<%end%>
+
+</ul>
+</div>
+ 
+
+<div id = 'payperiod'><div>
+<%=render 'punch_table'%>
+</div>
+</div>

@@ -1,19 +1,18 @@
+<div class = 'postit_form'>
+<h3 class = 'center'>Sign in</h3>
 
+	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  	<div><%= f.label :login %><br />
+  	<%= f.text_field :login %></div>
 
-<h2>Sign in</h2>
+  	<div><%= f.label :password %><br />
+ 	 <%= f.password_field :password %></div>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  	<% if devise_mapping.rememberable? -%>
+    	<div class = 'remember'><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+  	<% end -%>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
-
-  <div><%= f.submit "Sign in" %></div>
+  	<div class = 'button_space'><%= f.submit "Sign in" %></div>
 <% end %>
-
+</div>
 

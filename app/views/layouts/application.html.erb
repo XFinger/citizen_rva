@@ -13,83 +13,73 @@
 
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= stylesheet_link_tag "print", :media => "print" %>
- 
-
-  <%= yield :head %>
+ 	<%= yield :head %>
   
   </head>
   <body>
-  	 <div id = 'pagewrap'>
 
+  	<div id = 'pagewrap'>
+ 		 <% if can? :manage, Blog%>
+    		<%= render 'shared/admin'%>
+    	 <%end%>
+ 	 <div id =  'fix_size'>
+		<div id = 'hmenu'>
+			<span id = 'logo'>
+				<%= link_to image_tag("citizenlogo.png"), root_path%>
+ 			</span>		
 
- 	<% if user_signed_in? && current_user.admin? %>
-    	<%= render 'shared/admin'%>
-    <%end%>
- 	
-
-	<div id = 'hmenu'>
-	<span id = 'logo'><%= image_tag "citizenlogo.png"%>
- 		
- 	</span>		
-		
-		
-		<ul>
-			<li><%= link_to "Home", root_path  %></li>
- 			<li><%= link_to "Lunch Menu", '/menus/1'%></li>	
-			<li><%= link_to "Box Lunches", '/boxmenus/1'  %></li>
-			<li><%= link_to "Map", map_path %></li>
-			<li><%= link_to "Gallery", '/galleries/1'  %></li>
-			<li><%= link_to "Citizen"  %></li>
-			
-			
-		</ul> 
-
- 		<div id = "shift">
-    			 
-	                 <% if user_signed_in? %>
-	          			<%= current_user.email %> &nbsp; |  &nbsp;        			 
-	          			<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-	        		<% else %>
-	          			<%= link_to "SIGN UP ", new_user_registration_path %> &nbsp; |  &nbsp;
-	          			 <%= link_to " SIGN IN", new_user_session_path %>
-	        		<% end %>
-  				       
-		</div>
-	</div>	
+			<ul>
+	 			<li><%= link_to "Lunch Menu", '/menus/1'%></li>	
+				<li><%= link_to "Box Lunches", '/boxmenus/1'  %></li>
+				<li><%= link_to "Map", map_path %></li>
+				<li><%= link_to "Gallery", '/galleries/1'  %></li>
+				<li><%= link_to "Citizen"  %></li>
+			</ul> 
 	
+	 		<div id = "shift">
+				<% if user_signed_in? %>
+					<%= current_user.email %> &nbsp; |  &nbsp;        			 
+					<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+				<% else %>
+					<%= link_to "SIGN UP ", new_user_registration_path %> &nbsp; |  &nbsp;
+					 <%= link_to " SIGN IN", new_user_session_path %>
+				<% end %>       
+			</div>
+		</div>	
+
+ 	 	<div id = 'media_links'>
+ 	 		<%= link_to image_tag('fbook.png'), "http://www.facebook.com/citizenrva"%>
+ 	 		<%= link_to image_tag('twitter.png'), "http://twitter.com/CitizenRVA"%>
+ 	 		<%= link_to image_tag( 'yelp.png'), "http://www.yelp.com/biz/citizen-richmond" %>
+ 	 	</div>
 	
-     		
- 	 <div id = 'media_links'>
- 	 	<%= link_to image_tag('fbook.png'), "http://www.facebook.com/citizenrva"%>
- 	 	<%= link_to image_tag('twitter.png'), "http://twitter.com/CitizenRVA"%>
- 	 	<%= link_to image_tag( 'yelp.png'), "http://www.yelp.com/biz/citizen-richmond" %>
- 	 </div>
-	
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
- 
+		<% if flash[:notice] %>
+			<div id="flash_message">
+  				<% flash.each do |name, msg| -%>
+     				<%= content_tag :div, msg, :id => "flash_#{name}" %>
+  				<% end %>
+			</div>
+		<% end %>
 
 		<div class="main">
 			<%= yield %>
 		</div>
  
 
-</div>
-<div class = 'clear'></div>
+	</div>
+</div>	
+	<div class = 'clear'></div>
     <div class="bottombar" >
 		<p class = 'footer'>
-        	&copy; Citizen MMXII  | 909 E. Main St, Richmond VA |  (804) 780-9038  |  Hours: Monday - Friday 7am - 3pm
+        	&copy; Citizen MMXII - MMXIII | 909 E. Main St, Richmond VA |  (804) 780-9038  |  Hours: Monday - Friday 7am - 3pm
 		</p>
-	 
-
-     </div>
+    </div>
 
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-               <%= javascript_include_tag "application"%>
-<%= yield :javascript%>
-<%= yield :scripts %>
+    <%= javascript_include_tag "application"%>
+		<%= yield :javascript%>
+		<%= yield :scripts %>
   </body>
 </html>

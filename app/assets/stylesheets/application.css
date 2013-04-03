@@ -10,6 +10,13 @@
  *= require jquery-ui-timepicker
  *= require one
  *= require gmaps4rails
- *= print
+
+ *= require menus
+ *= require galleries
+ *= require blogs
+ *= require orders
+ *= require print
+ *= require scaffolds
+ * 
  *= require_tree . 
 */

@@ -85,7 +85,7 @@ class OrdersController < ApplicationController
     @order.save
     @user=current_user
     @address=Address.find(params[:address])
-    ConfirmationMailer.order_confirmation(@user, @address, @order).deliver unless @user.admin?
+    ConfirmationMailer.order_confirmation(@user, @address, @order).deliver 
   end
   
   def show
@@ -144,7 +144,7 @@ class OrdersController < ApplicationController
     end
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, :notice => 'Order was successfully created.' }
+        format.html { redirect_to @order, :notice => 'Please review your order and confirm below' }
         format.json { render :json => @order, :status => :created, :location => @order }
       else
         format.html { render :action => "new" }

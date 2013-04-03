@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  s_start: 2013-01-06
+  s_end: 2013-01-06
+
+two:
+  s_start: 2013-01-06
+  s_end: 2013-01-06

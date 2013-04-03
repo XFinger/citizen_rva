@@ -1,6 +1,6 @@
 .direct_container{
 	background:url('paper.jpg')center center  no-repeat;
-	padding:15px;
+	padding:5px 15px;
 	min-height:600px;
 	-webkit-box-shadow:0 0 15px rgba(0,0,0,0.6);
   	-moz-box-shadow:0 0 15px rgba(0,0,0,0.6);
@@ -12,7 +12,7 @@
 .stape{
 	position:relative;
 	width:100px;
-	top:-30px;
+	top:-34px;
 	left:40%;
 }
 .lg_text{
@@ -34,10 +34,12 @@
 
 	background:white;
 }
-
+.background_print #larger .map_container{
+	box-shadow:none;
+}
 .gmaps4rails_map {
-	min-width: 4in;
-	min-height: 4in;
+	width: 4in;
+	height: 4in;
 }
 
 #larger.gmaps4rails_map{

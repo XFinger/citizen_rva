@@ -1,4 +1,5 @@
 class Boxmenu < ActiveRecord::Base
+  mount_uploader :box_pdf, BoxUploader
   has_many :dishes, :as => :useable
   has_many :salads, :as => :useable
   has_many :sides, :as => :useable

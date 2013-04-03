@@ -1,0 +1,47 @@
+<%= link_to 'new', new_admin_punchclock_path(:empl => @user.id)%>
+ 
+ 
+ 
+ pay period # <%= @counter%>
+start   <%= just_date(@inception_date)%>   
+end   <%= just_date(@inception_date + 13.days)%><br>
+ <%= link_to 'prev', admin_clocks_path( :per => (@inception_date - 1.day).strftime('%b %d, %Y'),  :empl => @user.id ), :remote => true %>
+ <%= link_to 'next',admin_clocks_path( :per => (@inception_date + 14.days).strftime('%b %d, %Y'),  :empl => @user.id ), :remote => true %>
+<br>
+user: <%=@user.username%><br>
+id: <%=@user.id%><br>
+
+
+<table>
+	<tr> 
+		<th> Date</th>
+		<th> In</th>
+		<th> Out</th>
+		<th> TTL</th>
+		<th></th>
+    	<th></th>
+    	<th></th>
+	</tr>
+<% @punchclocks.each do |p| %>	
+	<tr>
+
+		<td><%=  p.paydate %> </td>
+		<td><%= just_time(p.in) unless p.in.blank?%></td>		
+
+
+		<td><%= just_time(p.out) unless p.out.blank?%></td>
+	
+		 
+		<td><%=  ChronicDuration.output(p.out - p.in, :format => :short) unless p.in.blank? || p.out.blank?%></td>
+		
+
+    <td><%= link_to 'Show', p%></td>
+    <td><%= link_to 'Edit', edit_admin_punchclock_path(p)  %></td>
+    <td><%= link_to 'Destroy', p, confirm: 'Are you sure?', method: :delete %></td>		
+	</tr>
+	 
+<%end%>	
+</table>
+<%=humanize(@total)%><br>
+<%= ChronicDuration.output(@total, :hours =>true)%><br>
+ <%= format_time(@total.to_i)%>

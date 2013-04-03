@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121004020246) do
+ActiveRecord::Schema.define(:version => 20130219034141) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "user_id"
@@ -120,6 +120,17 @@ ActiveRecord::Schema.define(:version => 20121004020246) do
     t.datetime "updated_at"
   end
 
+  create_table "punchclocks", :force => true do |t|
+    t.string   "user_name"
+    t.integer  "payperiod"
+    t.datetime "in"
+    t.datetime "out"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.date     "paydate"
+  end
+
   create_table "salads", :force => true do |t|
     t.string   "sal_name"
     t.string   "sal_description"
@@ -155,7 +166,10 @@ ActiveRecord::Schema.define(:version => 20121004020246) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "admin",                  :default => false
+    t.string   "username"
+    t.string   "role"
+    t.integer  "roles_mask"
+    t.string   "aasm_state",             :default => "out"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

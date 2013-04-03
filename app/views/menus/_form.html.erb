@@ -39,8 +39,8 @@
   <%= f.simple_fields_for :salads do |d|  %> 
 
  <%= d.input :sal_name , :label =>  'Salad Name' %>
- <%= d.input :sal_description, :label =>  'Salad Description'%>
- <%= d.input :sal_price %>
+ <%= d.input :sal_description, :label =>  'Description'%>
+ <%= d.input :sal_price, :label =>  'Price'%>
  
   
  	
@@ -54,8 +54,7 @@
 
  <%= f.simple_fields_for :sides do |s|  %>  
  <%= s.input :s_name , :label =>  'Side Name'%>
- <%= s.input :s_description, :label =>  'Description'%>
- <%= s.input :s_price, :label =>  'Price'%>
+
  
  <%= s.link_to_remove "Remove", :class => 'btn btn-mini float_it' %> 
  

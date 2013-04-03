@@ -12,7 +12,12 @@
   display:inline-block;
 
 }
-
+ul.blog_list li a:link{
+  color:#1fb25a;
+}
+ul.blog_list li a:visited{
+  color:#007520;
+}
 #tagline{
   width:100%;
   text-align:center;
@@ -88,8 +93,6 @@ ul.blog_list{
   padding-left:10px;
 }
 
-
-
 .center{text-align:center;}
 .postit {
   background:#fefabc;
@@ -101,7 +104,7 @@ ul.blog_list{
   box-shadow: 0px 4px 6px #333;
   -moz-box-shadow: 0px 4px 6px #333;
   -webkit-box-shadow: 0px 4px 6px #333;
-   margin-bottom:-34px;
+   margin-bottom:-14px;
    list-style:none;
 }
 .postit_head {
@@ -159,3 +162,43 @@ ul.postit li:nth-child(5n){
   -ms-transform: rotate(2deg);
   transform: rotate(2deg);
       }
+.postit_form{
+  position:relative;
+  margin:50px auto;
+  width:325px;
+  height:325px;
+  background:#fefabc;
+  padding:0px 0px 2px 9px;
+  color: #000;
+  box-shadow: 0px 4px 6px #333;
+  -moz-box-shadow: 0px 4px 6px #333;
+  -webkit-box-shadow: 0px 4px 6px #333;
+   margin-bottom:-34px;
+  -moz-transform: rotate(2deg);
+  -webkit-transform: rotate(2deg);
+  -o-transform: rotate(2deg);
+  -ms-transform: rotate(2deg);
+  transform: rotate(2deg);
+  font-family: Georgia;
+  font-weight:bold;
+}
+.postit_form input{
+  padding:3px;
+  margin:2px;
+  width:90%;
+}
+.button_space{
+  margin:6px 0;
+}
+.button_space input{
+  width:25%;
+}
+.remember{
+  margin:6px 0;
+}
+.remember input{
+  width:10%;
+}
+.postit_form a:link, .postit_form a:visited{
+  color:#007520;
+}

@@ -35,6 +35,8 @@
     <%= f.check_box :published%>
   </div><br />
   
+  	<%= f.hidden_field :published_on, :value => Time.now %>
+  	
   <div class="actions">
     <%= f.submit %>
   </div>

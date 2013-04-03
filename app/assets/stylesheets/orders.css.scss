@@ -2,12 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #background{
-  width:70%;
+  width:75%;
   background:url('paper.jpg')center center fixed no-repeat;
  -moz-background-size: cover;
   background-size: cover;
   margin:0 auto;
-  padding:20px;
+  padding:28px;
   z-index:1;
   color:black; 
   -webkit-box-shadow:0 0 15px rgba(0,0,0,0.6);
@@ -15,6 +15,7 @@
   box-shadow:0 0 15px rgba(0,0,0,0.6);
   -moz-border-radius:10px / 100px;
   border-radius:10px / 100px;
+  min-height:600px;
 }
 
 #thumbtack{
@@ -25,15 +26,13 @@
   margin-bottom:-40px;
 }
 form{
-  font-weight:bold;
   font-family:Georgia;
-  font-size:16px;
 }
 form h2{
-  width:75%;
-  text-align:center;
-  padding-left:50px;
+  width:100%;
+  text-align:left;
 
+  color:#e10052;
   padding-top:15px;
 }
 form p{
@@ -50,6 +49,11 @@ form p{
   position:relative;
   left:-4px;
   font-weight:bold;
+  color:#e10052;
+}
+#background form hr{
+  border: 4px solid #e10052;
+
 }
 .split_l{
   display:inline-block;
@@ -79,9 +83,7 @@ form p{
   margin-right:6px;
 }
 #orders td.ul{
-  width:60%;
-
-  
+  width:60%;  
   background-color:#eeeeee;
 
 }
@@ -93,7 +95,38 @@ form p{
   font-size:17px;
   font-weight:normal;
 }
-.pull-right_r{
-  float:right;
-  margin-right:40px;
+
+.oname{
+  color: #e10052;
+  font-size:18px;
+  font-weight:800;
+}
+.odesc{
+  color:#e10052;
+  font-size:15px;
+  font-weight:600;
+}
+
+#background .simple_form input,
+#background .simple_form textarea{
+  border:4px solid #e10052;
+  padding:4px;
+  font-weight:bold;
+}
+
+#background .simple_form label{
+  color:#e10052;
+  font-size:17px;
+  font-weight:bolder;
+ 
+}
+#background .simple_form div.boolean, #background .simple_form input[type="submit"] {
+    margin-left: 20px;
+    color:#e10052;
+    font-weight:bold;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
 }

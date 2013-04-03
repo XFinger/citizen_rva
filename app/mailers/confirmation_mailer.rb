@@ -1,7 +1,7 @@
 class ConfirmationMailer < ActionMailer::Base
   helper [:orders, :application]
   default :css => :email
-  default :from => 'xfinger@gmail.com'
+  default :from => 'citizenrva@verizon.net'
   
   def order_confirmation(user, address, order)
     @address=address
