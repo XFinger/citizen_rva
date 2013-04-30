@@ -1,19 +1,51 @@
-  
-<p id="notice"><%= notice %></p>
+<div id = 'background' class = 'box' >
+		<div class = 'stape'>
+		<span class = 'center'><%= link_to image_tag("dbutton.png"), get_box_menu_path%></span><br>
+
+		</div>
+
 	
 	<% if can? :update, @boxmenu%>
 		<h3><%= link_to 'Order Now', new_order_path%></h3>
 	<%end%>
+		<h1 class = "center"> CITIZEN BOXED LUNCH - FREE DELIVERY</h1>
+		<h2 class = "center"> All Boxed Lunches $10.75</h2>
+		<div id ='boxl_desc'>
+		<h3 class = "center">BOX LUNCHES COME COMPLETE WITH ENTR&#201;E, SIDE ORDER, DAILY DESSERT AND APPROPRIATE UTENSILS. DELIVERED TO YOUR DOOR BY QUICKNESS RVA</h3>
+		</div>
+		
+		
+		<% @boxmenu.dishes.each do |dish| %>
+		  <p>
+			<%= dish.name%>
+			<%= dish.description%>
+		   </p>
+		<%end%>
+  		<% @boxmenu.salads.each do |salad| %>
+  		   <p>
+ 			<%= salad.sal_name%>
+ 			<%= salad.sal_description%>
+		   </p>
+ 		<%end%>
+<br>
+		<p>
+			Additional Sides $2.50<br>
+		<%  @boxmenu.sides.each do |side| %>
+			<%= side.s_name%> &nbsp; &nbsp;
+	 	
+		<%end%>
+		</p>
+<br>
+		<p>Drinks $1.50<br>
+		<% @boxmenu.drinks.each do |drink| %>
+			<%= drink.d_name%>  &nbsp; &nbsp;
+		<%end%>
+		</p>
+<br>
 
+	
+	<h1 class = "center">CITIZEN 804-780-9038</h1>
+	<h4 class = "center">facebook.com/citizenrva &nbsp; &nbsp; citizenrva.com &nbsp; &nbsp; twitter.com/citizenrva</h4>
+	<h4 class = "center">PLEASE ORDER BETWEEN 7 - 11am OR 3 - 5pm AT LEAST 24 HOURS BEFORE DELIVERY </h4>
 
-
-<div id = 'pdf'>
-<object	data="<%= @boxmenu.box_pdf.url %>#toolbar=0&amp;navpanes=0&amp;scrollbar=1&amp;page=1&amp;view=fitH,0,0" 
-        type="application/pdf" 
-        width="800px" 
-        height="900px">
-<p>It appears you don't have a PDF plugin for this browser. You can <a href="<%= @boxmenu.box_pdf.url %>">click here to download the PDF file.</a></p>
-
-</object>
 </div>
-  

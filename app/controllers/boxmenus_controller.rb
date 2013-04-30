@@ -2,7 +2,10 @@ class BoxmenusController < ApplicationController
   
   load_and_authorize_resource
 
-
+  def get_box_menu
+    @box=Boxmenu.first
+    send_file "#{Rails.root}/public/uploads/boxmenu/box_pdf/1/box.pdf"
+  end
  
   def show
     @boxmenu = Boxmenu.find(:last)

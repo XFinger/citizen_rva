@@ -36,6 +36,7 @@ CitizenII::Application.routes.draw do
   devise_for :users 
 
   root :to => 'blogs#show'
+  match 'get_box_menu' => 'boxmenus#get_box_menu', :as => 'get_box_menu'
   match 'get_menu' => 'menus#get_menu', :as => 'get_menu'
   match 'order_sheet' => 'orders#order_sheet', :as => 'order_sheet'
   match 'textile_preview' => 'textile_preview#show'

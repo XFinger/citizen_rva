@@ -1,0 +1,19 @@
+  
+<p id="notice"><%= notice %></p>
+	
+	<% if can? :update, @boxmenu%>
+		<h3><%= link_to 'Order Now', new_order_path%></h3>
+	<%end%>
+
+
+
+<div id = 'pdf'>
+<object	data="<%= @boxmenu.box_pdf.url %>#toolbar=0&amp;navpanes=0&amp;scrollbar=1&amp;page=1&amp;view=fitH,0,0" 
+        type="application/pdf" 
+        width="800px" 
+        height="900px">
+<p>It appears you don't have a PDF plugin for this browser. You can <a href="<%= @boxmenu.box_pdf.url %>">click here to download the PDF file.</a></p>
+
+</object>
+</div>
+  

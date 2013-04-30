@@ -14,6 +14,7 @@ class Ability
       can :show, [Boxmenu, Menu, Gallery, Blog]
       can :get_menu, Menu
     else
+      can :get_box_menu, Boxmenu
       can :get_menu, Menu
       can :show, [Menu, Boxmenu, Gallery, Blog]
       can :show, Order, :user_id => user.id

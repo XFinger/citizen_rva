@@ -1,7 +1,9 @@
-<%= link_to 'download menu', get_menu_path%>
+
 
 <div id = 'blackboard' class = 'border'>
-	<div id = 'breakfast'>
+
+	<div id = 'breakfast'>	
+		<span class = 'center'><%= link_to image_tag("dbutton.png"), get_menu_path%></span><br>
 		<span class = 'bhead'>breakfast</span>
 		<span class = 'bname'>served all day long</span><br />
 		<%  @menu.breakfasts.each do |br| %>
