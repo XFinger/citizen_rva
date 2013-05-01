@@ -2,15 +2,24 @@
     font-family: DirtyHeadlineRegular;
 }
 #boxl_desc{
-    width:90%;
+    width:76%;
     padding:5px;
     color:white;
     background:black;
     margin:5px auto 15px auto;
 }
 .box p{
-    width:80%;
+    width:70%;
     padding:3px;
     margin:auto;
+    font-size:110%;
+}
+.box h1{
+    font-size:150%;
+}
+.box h2{
+    font-size:140%;
+}
+.box h3{
     font-size:120%;
 }

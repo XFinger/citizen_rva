@@ -12,8 +12,17 @@
 .stape{
 	position:relative;
 	width:100px;
-	top:-34px;
+	top:-43px;
 	left:40%;
+}
+.chalk{
+    position:relative;
+    width:161px;
+
+    float:right;
+    margin-right:20px;
+    top:-55px;
+ 
 }
 .lg_text{
 	font-size:15px
