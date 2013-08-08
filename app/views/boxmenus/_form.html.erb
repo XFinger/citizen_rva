@@ -3,26 +3,21 @@
 	<%= simple_nested_form_for @boxmenu , :html => {:class => ' well form-horizontal', :multipart => true } do |f| %>
 		<%= f.error_notification %>
 		  <%= f.input :box_pdf, :label => 'Upload PDF', :as => :file %>
+ <hr>
+
 		<%= f.simple_fields_for :dishes do |d|  %> 
-			<%= d.input :name , :label =>  'Sandwich', :input_html => { :class => 'one'}%>
+			<%= d.input :name , :label =>  'Dish Name', :input_html => { :class => 'one'}%>
  			<%= d.input :description, :input_html => { :class => 'two'}%>
+ 			<%= d.input :alt_desc, :label =>  'Summery and Side', :input_html => { :class => 'two'}%>
  			<%= d.input :price, :input_html => { :class => 'three'}%>
+ 			
  			<%= d.link_to_remove "Remove", :class => 'btn btn-mini pad float_it' %> 
  <br>
  		<%end%>
-		<%= f.link_to_add "Add A Sandwich", :dishes, :class => 'btn btn-mini' %>
+		<%= f.link_to_add "Add A Sandwich/Salad", :dishes, :class => 'btn btn-mini' %>
  <hr>
  
-  		<%= f.simple_fields_for :salads do |d|  %> 
-			<%= d.input :sal_name , :label =>  'Salad Name', :input_html => { :class => 'one'}%>
- 			<%= d.input :sal_description, :label =>  'Description', :input_html => { :class => 'two'}%>
- 			<%= d.input :sal_price, :label =>  'Price', :input_html => { :class => 'three'}%>
-			<%= d.link_to_remove "Remove", :class => 'btn btn-mini pad float_it' %> 
- <br>
- 		<%end%>
- 		<%= f.link_to_add "Add A Salad", :salads, :class => 'btn btn-mini' %>
- <hr>
-
+ 
  		<%= f.simple_fields_for :sides do |s|  %>  
  			<%= s.input :s_name , :label =>  'Side Name', :input_html => { :class => 'one'}%>
 			<%= s.input :s_price, :label =>  'Price', :input_html => { :class => 'three'}%>

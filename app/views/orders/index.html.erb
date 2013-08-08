@@ -21,16 +21,11 @@
 
  			<% order.dishes.each do |d|%>
 				<% if !d.count.nil? %>
-					<%= order_list(d.count, d.name)%>
+					<%= order_list(d.count, d.alt_desc)%>
 			<% end %>
 		<% end %>
 	
-   		<% order.salads.each do |sal|%>
-			<% if !sal.sal_count.nil? %>
-				<%= order_list(sal.sal_count, sal.sal_name)%>
-			<% end %>
-		<% end %>
- 
+  
 		<% order.sides.each do |side|%>
 			<% if !side.s_count.nil? %>
 			<%= order_list(side.s_count, side.s_name)%> 

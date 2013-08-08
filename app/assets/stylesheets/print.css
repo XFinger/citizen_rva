@@ -1,31 +1,58 @@
 @media print {
-body { 
-    margin:0;
-	font-family: "Georgia", Times New Roman, Serif;
-	color: #000;
-	background: #fff;
-}	
-	
+body {
+    width:8.5in;
+    height:11in;
+    margin:0; 
+    padding:0; 
+    line-height: 3em; 
+    word-spacing:2px; 
+    letter-spacing:0.4px; 
+    font: 17pt Arial, Helvetica,"Lucida Grande", serif; 
+    color: #000;
+    }
+    
 #admin_links, #admin, #hmenu, #media_links, .bottombar {
 display: none;
 }
-.background_print{
-  width:8.5in;
-  height:11in;
-  background:white;
-
-  padding:5px;
-}
+ 
 .page_break{
 	page-break-after:always;
  
 	}
-#box{
-  width:18px;
-  height:18px;
-  outline:1px solid black;
-  display:inline-block;
-  margin-right:6px;
+ #orders{
+  margin-top:20px;
+}
+
+#orders td.ul {
+ 
+  border-bottom:1px solid #999999;
+}
+ #orders td.nl{
+  border-bottom:none;
+ 
+}
+#orders_receipt{
+  width:45%;
+  float:right;
+  margin-right:90px;
+}
+#orders_receipt tr td{
+  text-align:right;
+
+}
+#orders_receipt td.ul{
+  border-bottom:1px solid #999999;
+}
+ 
+
+#lhead{
+ 
+  margin:65px auto 0 auto;
+  font-size:120%;
+} 
+#lhead_base{
+  font-size:110%;
+  margin-bottom:45px;
 }
 	
 	

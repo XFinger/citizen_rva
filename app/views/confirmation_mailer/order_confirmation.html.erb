@@ -1,18 +1,41 @@
 
-<style type="text/css"></style> 
-<div class = 'span12 no_outline'>
-	<%= image_tag 'citizen_print.png'%>
+ <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <style type="text/css">
+ 	body { color:#000000; font-size:14px; font-family:Verdana,Helvetica,Arial; }
+ 	#review{
+  	position:relative;
+  	width:90%;
+  	margin:auto;
+    }
+    .spacer{padding-right:10px;}
+   .receipt_desc{
+	display:inline-block;
+ 
+	margin:0;
+ 
+	}
+    .pull-right_r{
 
-</div>
-<div class = 'lg_text bold '>
-		Citizen <br>
-</div>
-<div class = ' bold '>		
-		909 E. Main St <br>
-		Richmond VA, 23219 <br>
-		804-780-9038<br>
-		citizenrva@verizon.net<br>
-</div>
-<br>
-<hr>
-<%= render 'orders/show' %>
+  	float:right;
+  	margin-right:90px;
+	}
+	#orders_receipt{
+ 	display:block;
+ 	margin:top:5px;
+ 	}
+ 
+	#orders_receipt tr td{
+  	text-align:right;
+	}
+ 
+  </style>
+</head>
+<body>
+	<div id = 'review'>
+	<%= render 'summery' %>
+	</div>
+</body>
+</html>

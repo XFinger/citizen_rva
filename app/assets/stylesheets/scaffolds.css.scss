@@ -62,12 +62,14 @@ body{
   box-shadow:  0 0 10px #000000;
 
 }
-.background_print{
-  width:8.5in;
+.white_back{
+  width:80%;
   height:11in;
   background:white;
   margin:2px auto 2px auto;
   padding:15px;
+  font-weight:bold;
+ 
 }
 pre {
   background-color: #eee;

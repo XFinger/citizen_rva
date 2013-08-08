@@ -1,12 +1,12 @@
 source 'http://rubygems.org'
 
 gem 'aasm'
-gem 'rails', '3.2.0'
+gem 'rails', '3.2.11'
 gem 'mysql2'
 gem 'geokit-rails3'
 gem 'devise'
 gem 'textile_editor_helper'
-gem 'rmagick'  , '2.13.1'
+gem 'rmagick'  # , '2.13.1'
 gem 'RedCloth'
 gem 'simple_form' 
 gem 'htmlentities'
@@ -14,11 +14,13 @@ gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
 gem 'gmaps4rails'
 gem 'json'
 gem 'carrierwave'
-gem 'jquery-rails'
+ 
 gem 'roadie'
 gem 'cancan'
 gem 'kaminari'
 gem "chronic_duration", "~> 0.10.2"
+gem 'therubyracer', :platforms => :ruby 
+gem 'jquery-rails', '~> 2.1'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

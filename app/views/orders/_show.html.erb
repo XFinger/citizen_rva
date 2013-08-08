@@ -1,10 +1,16 @@
 
-	<div>
-		<%= @order.address.contact_name%><br>
-		<%= @order.address.styled_address%><br>
+<div>
+	<% if @order.delivery? %>
+ 		Deliver to: 
+ 	<% else %>
+ 		Pick up: 
+ 	<% end %>		
 		
-		<%= number_to_phone(@order.address.phone, :groupings => [3, 3, 4], :delimiter => "-") %><br> 
-		<%= @order.user.email%><br><br>
+	<%= @order.address.contact_name%><br>
+	<%= @order.address.styled_address%><br>
+		
+	<%= number_to_phone(@order.address.phone, :groupings => [3, 3, 4], :delimiter => "-") %><br> 
+	<%= @order.user.email%><br><br>
 
 	<% if @order.delivery? %>
  		Delivery: 
@@ -14,38 +20,67 @@
  	
   		<%= @order.delivery_time.strftime('%I:%M %p %B %d, %Y')   %>
   		
-  	</div>
+ </div>
   	<% if @order.delivery? && !@order.delivery_instruct.blank?%>
   		Delivery Instructions:  <%= @order.delivery_instruct %>
  	<% end %>
-<br><br>
+<br> 
+	Order Summery:
 	<% @order.dishes.each do |d|%>
 		<% if !d.count.nil? %>
-			<%= order_receipt(d.count, d.name, d.description, d.price)%>
-		<% end %>
-	<% end %>
-	<% @order.salads.each do |sal|%>
-		<% if !sal.sal_count.nil? %>
-		<%= order_receipt(sal.sal_count, sal.sal_name, sal.sal_description, sal.sal_price)%>
+			<%= order_receipt(d.count, d.alt_desc, d.price)%>
 		<% end %>
 	<% end %>
  
+ 
 	<% @order.sides.each do |side|%>
 		<% if !side.s_count.nil? %>
-		<%= order_receipt(side.s_count, side.s_name, nil, side.s_price)%> 
+		<%= order_receipt(side.s_count, side.s_name, side.s_price)%> 
 		<% end %>
 	<% end %>
  
 	<% @order.drinks.each do |dr|%>
 		<% if !dr.d_count.nil? %>
-		<%= order_receipt(dr.d_count, dr.d_name, nil, dr.d_price)%>
+		<%= order_receipt(dr.d_count, dr.d_name, dr.d_price)%>
 		<% end %>
  	<% end %>
-<br> 
-	<div>Subtotal: <span class = 'pull-right_r'><%= deci_plain @order.sub_ttl%></span></div>
-	<div>Tax: <span class = 'pull-right_r'><%= deci_plain @order.tax%></span></div>
-	<div>Total: <span class = 'pull-right_r'><%= deci_plain @order.ttl_price%></span></div>
+
+<table id = 'orders_receipt'>
+					<tr><td>&nbsp;</td> </tr>	
+				<tr>
+					<td>
+						Subtotal:
+					</td>
+					<td ><%= deci_plain @order.sub_ttl%></td>
+				</tr> 
+
+				<tr>
+					<td>
+						Tax:
+					</td>
+					<td><%= deci_plain @order.tax%></td>
+				</tr>
+				<tr>
+					<td>
+						Total:
+					</td>
+					<td><%= deci_plain @order.ttl_price%></td>
+				</tr>				 
+				<tr>
+					<td>
+						Tip:
+					</td>
+					<td class = 'ul' ></td>
+				</tr>		
+				<tr>
+					<td>
+						New Total:
+					</td>
+					<td class = 'ul' ></td>
+				</tr>
+				<tr><td>&nbsp;</td> </tr>	
 
 
+</table>
 
 <br>

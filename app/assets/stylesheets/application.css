@@ -7,7 +7,7 @@
  
  *= require textile-editor
  *= require jquery-ui
- *= require jquery-ui-timepicker
+ *= require jquery-ui-timepicker-addon
  *= require one
  *= require gmaps4rails
 

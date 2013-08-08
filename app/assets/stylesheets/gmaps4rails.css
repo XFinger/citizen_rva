@@ -18,10 +18,9 @@
 .chalk{
     position:relative;
     width:161px;
-
     float:right;
     margin-right:20px;
-    top:-55px;
+    bottom:-45px;
  
 }
 .lg_text{
@@ -105,4 +104,27 @@
 .postit form input{
 	background:#F0F0EE;
 	padding:3px;
+}
+.split_l{
+  display:inline-block;
+  width:46%;
+  vertical-align:top;
+  margin-left:20px;
+ 
+}
+.split_r{
+  display:inline-block;
+  width:46%;
+  vertical-align:top;
+  font-size:20px;
+  outline:1px solid blue;
+  margin-left:20px;
+}
+.split_2{
+  position:relative;
+  margin-top:20px;
+}
+.split_short{
+  width:35%;
+  margin-right:7%;
 }

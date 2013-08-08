@@ -1,5 +1,5 @@
 <div id = 'background' >
-	<div id = 'thumbtack'><%= image_tag 'thumbtack.png'%> </div>
+ 
 		<%= simple_nested_form_for @order do |f| %>
 			<h2>Box Lunches</h2>
 				Please order box lunches by 5pm on the day before you want them. Some restrictions apply. See small print for details.
@@ -17,18 +17,17 @@
           				:input_html => { :class => 'rb'},
           				:checked => true%>
 <br><br>
-  					<%= f.input :delivery_time, :label => 'Delivery/Pick Up Time', :as => :string, :input_html => { :id => 'stime' } %> 
+  					<%= f.input :delivery_time, :label => 'Delivery/Pick Up Time', :as => :string,  :input_html => { :id => 'stime' } %> 
  					<%= f.simple_fields_for :address %>
   				<div class="ss">
 					<%= f.input :delivery_instruct, :label => 'Delivery Instructions', :input_html => { :class => 'text_a'} %>	
 				</div> 
 				</div>
-				<h2>Sandwiches</h2>  
+<hr>
+				<h2>Box Lunches</h2>  
 					<div id = 'quantity'>QUANTITY</div>
 					<%= f.simple_fields_for :dishes %>
-				<h2>Salads</h2>
-					<div id = 'quantity'>QUANTITY</div>  
-					<%= f.simple_fields_for :salads %> 
+
 				<h2>Sides</h2>
 					<div id = 'quantity'>QUANTITY</div>  
 					<%= f.simple_fields_for :sides %>
@@ -37,23 +36,7 @@
 					<%= f.simple_fields_for :drinks %>
  			<%= f.button :submit, :class => 'topmarg' %>
 		<% end %>
-<%= content_for :javascript do %>
-	<script type="text/javascript"> 
-		$('#stime').datetimepicker({
-			beforeShowDay: $.datepicker.noWeekends,
-			ampm: true,
-			stepMinute: 15,
-			hourMin: 10,
-			hourMax: 14,
-			dateFormat: 'yy-mm-dd'
-			});
-			
-	//	$('.rb').click(function() { $('.ss').toggle(); });
-		$('#order_delivery_false').click(function() { $('.ss').hide(); });
-		$('#order_delivery_true').click(function() { $('.ss').show(); });
-	</script>
 
-<%end%>
 
 </div>
 

@@ -6,8 +6,8 @@ class OrdersController < ApplicationController
   def order_sheet
     @order=Order.find(params[:id])
     @address =  "#{@order.address.street}  #{@order.address.city}, #{@order.address.state}"
-    @citizen_address='909 E. Main St Richmond VA, 23219'
-    @citizen = GeoKit::Geocoders::MultiGeocoder.geocode(@citizen_address)
+   # @citizen_address='909 E. Main St Richmond VA, 23219'
+   # @citizen = GeoKit::Geocoders::MultiGeocoder.geocode(@citizen_address)
     
     
   end
@@ -22,9 +22,8 @@ class OrdersController < ApplicationController
   
   
   def get_ttls
-    @tax_rate = 0.11
+    @tax_rate = 0.113
     @sands_ttl=0
-    @salads_ttl=0
     @sides_ttl=0
     @drinks_ttl=0
     @order_sub=0
@@ -38,13 +37,7 @@ class OrdersController < ApplicationController
       end
     end  
     
-    @order.salads.each do |sal|
-      unless sal.sal_count.blank?
-      @salad=sal.sal_count * sal.sal_price
-      @salads_ttl = @salads_ttl + @salad
-      end
-    end
-    
+     
     @order.sides.each do |side|
       unless side.s_count.blank?
       @side= side.s_count * side.s_price
@@ -59,7 +52,7 @@ class OrdersController < ApplicationController
       end
     end
     
-    @order_sub=@sands_ttl + @salads_ttl + @sides_ttl + @drinks_ttl
+    @order_sub=@sands_ttl  + @sides_ttl + @drinks_ttl
     @order_tax= @order_sub * @tax_rate
     @order_ttl=@order_sub + @order_tax
     
@@ -70,8 +63,7 @@ class OrdersController < ApplicationController
   end
   
   def index
-    @orders = Order.includes(:address).all
-    
+    @orders = Order.includes(:address).order("id DESC").all    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @orders }
@@ -85,7 +77,7 @@ class OrdersController < ApplicationController
     @order.save
     @user=current_user
     @address=Address.find(params[:address])
-    ConfirmationMailer.order_confirmation(@user, @address, @order).deliver 
+     ConfirmationMailer.order_confirmation(@user, @address, @order).deliver 
   end
   
   def show
@@ -108,14 +100,10 @@ class OrdersController < ApplicationController
     else
       @order.build_address( :street => @address.street, :city => @address.city, :phone => @address.phone, :contact_name => @address.contact_name)
     end
-    
-    
     @boxmenu.dishes.each do |dish|
-      @order.dishes.build(:name => dish.name, :description =>dish.description, :price => dish.price)
+      @order.dishes.build(:name => dish.name, :description =>dish.description, :price => dish.price, :alt_desc => dish.alt_desc)
     end
-      @boxmenu.salads.each do |salad|
-      @order.salads.build(:sal_name => salad.sal_name, :sal_description => salad.sal_description, :sal_price => salad.sal_price)
-    end
+
     @boxmenu.sides.each do |side|
       @order.sides.build(:s_name => side.s_name, :s_price => side.s_price)
     end
@@ -139,12 +127,10 @@ class OrdersController < ApplicationController
  
   def create
     @order = Order.new(params[:order])
-    if @order.delivery == true
-    get_geo
-    end
+ 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, :notice => 'Please review your order and confirm below' }
+        format.html { redirect_to @order  }
         format.json { render :json => @order, :status => :created, :location => @order }
       else
         format.html { render :action => "new" }
@@ -156,10 +142,7 @@ class OrdersController < ApplicationController
  
   def update
     @order = Order.find(params[:id]) 
-   
-    if @order.delivery == true
-        get_geo 
-    end
+ 
     respond_to do |format|
       if @order.update_attributes(params[:order])
         format.html { redirect_to @order, :notice => 'Order was successfully updated.' }
@@ -177,7 +160,7 @@ class OrdersController < ApplicationController
     @order.destroy
 
     respond_to do |format|
-      format.html { redirect_to orders_url }
+      format.html  { redirect_to orders_url } 
       format.json { head :ok }
     end
   end

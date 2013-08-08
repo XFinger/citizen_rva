@@ -10,8 +10,8 @@ class Order < ActiveRecord::Base
                   :salads_attributes, :sides_attributes, :drinks_attributes, :address_attributes
                    
   validates :delivery_time, :presence => true
-  
-  
+ 
+   
   has_many :dishes, :as => :useable, :dependent => :destroy
   has_many :salads, :as => :useable, :dependent => :destroy
   has_many :sides, :as => :useable, :dependent => :destroy
@@ -21,6 +21,9 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :sides, :allow_destroy => true #, :reject_if => lambda { |b| b[:s_count].blank? }
   accepts_nested_attributes_for :drinks, :allow_destroy => true #, :reject_if => lambda { |c| c[:d_count].blank? }
   accepts_nested_attributes_for :address, :allow_destroy => true
-  accepts_nested_attributes_for :salads, :allow_destroy => true #, :reject_if => lambda { |e| e[:sal_count].blank? }
+  
+
+ 
+
 
 end

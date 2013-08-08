@@ -18,7 +18,7 @@ class Ability
       can :get_menu, Menu
       can :show, [Menu, Boxmenu, Gallery, Blog]
       can :show, Order, :user_id => user.id
-      can :create, Order
+      can [:show, :create, :update, :destroy], Order, :user_id => user.id
       can :confirmation, Order
       can :update, Order do |order|
         order.try(:user)==user

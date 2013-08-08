@@ -1,51 +1,66 @@
-<div id = 'background' class = 'box' >
-		<div class = 'stape'>
-		<span class = 'center'><%= link_to image_tag("dbutton.png"), get_box_menu_path%></span><br>
+<div id = 'background_box'  class = 'box'>
+ 
 
-		</div>
-
-	
-	<% if can? :update, @boxmenu%>
-		<h3><%= link_to 'Order Now', new_order_path%></h3>
-	<%end%>
-		<h1 class = "center"> CITIZEN BOXED LUNCH - FREE DELIVERY</h1>
-		<h2 class = "center"> All Boxed Lunches $10.75</h2>
-		<div id ='boxl_desc'>
-		<h3 class = "center">BOX LUNCHES COME COMPLETE WITH ENTR&#201;E, SIDE ORDER, DAILY DESSERT AND APPROPRIATE UTENSILS. DELIVERED TO YOUR DOOR BY QUICKNESS RVA</h3>
-		</div>
-		
-		
+	<h1 class = 'center'>Boxed Lunch Menu</h1>
+	<h2 class = 'center'>Just $10.75 EACH!  Free Delivery!</h2>
+	<h3 class = 'center'>All box lunches come complete with entre&#201;, side dish, daily dessert & cutlery</h3>
+	<div class ='boxl_desc'>
+		<h3 class = "center">
+			please order between 7AM - 11AM or 3PM -5PM one day before you'd like your order. <br> 
+			Minimum of 7 boxed lunches per order.
+			</h3>
+	</div>
+	<h2>Boxed Lunches</h2>
 		<% @boxmenu.dishes.each do |dish| %>
 		  <p>
 			<%= dish.name%>
 			<%= dish.description%>
 		   </p>
 		<%end%>
-  		<% @boxmenu.salads.each do |salad| %>
-  		   <p>
- 			<%= salad.sal_name%>
- 			<%= salad.sal_description%>
-		   </p>
- 		<%end%>
-<br>
+
+<br>	
+	<h2>Additional Sides $2.50 </h2>
+		<p>		
+			<% @boxmenu.sides.each do |side| %>
+				<%= side.s_name%> &nbsp; &nbsp;
+	 		<%end%>
+		</p>
+<br> 
+		<h2>Drinks $1.50</h2>
 		<p>
-			Additional Sides $2.50<br>
-		<%  @boxmenu.sides.each do |side| %>
-			<%= side.s_name%> &nbsp; &nbsp;
-	 	
-		<%end%>
+			<% @boxmenu.drinks.each do |drink| %>
+				<%= drink.d_name%>  &nbsp; &nbsp;
+			<%end%>
 		</p>
 <br>
-		<p>Drinks $1.50<br>
-		<% @boxmenu.drinks.each do |drink| %>
-			<%= drink.d_name%>  &nbsp; &nbsp;
-		<%end%>
-		</p>
-<br>
-
-	
-	<h1 class = "center">CITIZEN 804-780-9038</h1>
-	<h4 class = "center">facebook.com/citizenrva &nbsp; &nbsp; citizenrva.com &nbsp; &nbsp; twitter.com/citizenrva</h4>
-	<h4 class = "center">PLEASE ORDER BETWEEN 7 - 11am OR 3 - 5pm AT LEAST 24 HOURS BEFORE DELIVERY </h4>
-
+		<div class ='boxl_desc'>
+			<div id = 'address_box'>
+				citizen<br>
+				909 E. Main St.<br>
+				Richmond, Va <br>
+				(804)780-9038 <br>
+				www.citizenrva.com <br>
+			</div>	
+		
+			<div id = 'tags' >
+				<div id ='options'>
+					<div class = 'btn-group '>
+ 
+							<span class = 'btn btn-mini'><%= link_to 'Order Now', new_order_path%></span> 
+							<span class = 'btn btn-mini'><a href="http://goo.gl/maps/faWdS"  :target = "_blank" >Delivery Area</a></span>
+							<span class = 'btn btn-mini'><%= link_to 'Download', get_box_menu_path%></span> 
+					</div>
+				</div>
+				<div id = 'blinks'>
+ 	 			<%= link_to image_tag('fb.png'), "http://www.facebook.com/citizenrva"%>
+ 	 			<%= link_to image_tag('twit.png'), "http://twitter.com/CitizenRVA"%>
+ 	 			<%= link_to image_tag('ylp.png'), "http://www.yelp.com/biz/citizen-richmond"%>
+ 	 			<%= link_to image_tag('insta.png') %>
+ 	 			<%= link_to image_tag('square.png') %>
+ 	 		
+ 	 			</div>
+ 	 		</div>
+ 	 	</div>
 </div>
+
+

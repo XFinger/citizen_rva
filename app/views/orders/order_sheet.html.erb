@@ -1,6 +1,9 @@
 
-<div class = 'background_print'>
-	<div class = 'split_l bold big_print'>
+<div class = 'white_back'>
+	
+	<h2 class = 'center'>Shop Copy</h2><br><br>
+ 
+	
 			Order # : <%= @order.id %><br>
 			<% if @order.confirmed? %>
 				Confirmed<br>
@@ -17,25 +20,18 @@
 			<%= @order.delivery_time.strftime('%I:%M %p %B %d, %Y') unless @order.delivery_time.nil? %>
 		
 			<br>
-			<%= @order.address.contact_name %><br>
-			<%= @order.address.street%><br>
-			<%= @order.address.city %>,
-			<%= @order.address.state %><br>
-			<%= number_to_phone(@order.address.phone, :groupings => [3, 3, 4], :delimiter => "-") %><br> 
-			<%= @order.user.email%><br><br>
-		
+			Delivery Contact:<%= @order.address.contact_name %><br>
+			Delivery Address:<%= @order.address.street%><br>
+			Phone:<%= number_to_phone(@order.address.phone, :groupings => [3, 3, 4], :delimiter => "-") %><br> 
+			Email:<%= @order.user.email%><br><br>
+			Order Summery: <br>
 		 	<% @order.dishes.each do |d|%>
 				<% if !d.count.nil? %>
-					<%= order_list(d.count, d.name)%>
+					<%= order_list(d.count, d.alt_desc)%>
 				<% end %>
 			<% end %>
 			
-		   <% @order.salads.each do |sal|%>
-				<% if !sal.sal_count.nil? %>
-					<%= order_list(sal.sal_count, sal.sal_name)%>
-				<% end %>
-			<% end %>
-		 
+	 
 			<% @order.sides.each do |side|%>
 				<% if !side.s_count.nil? %>
 					<%= order_list(side.s_count, side.s_name)%> 
@@ -48,76 +44,106 @@
 				<% end %>
 		 	<% end %>
 
-		
-	 
-	</div> 
-	<div class= 'split_r'>
-		<div id = 'box'></div> Called and Confirmed<br>
+ 
+ 
 			<table id = 'orders'>
 				<tr>
 					<td>
-						Credit Card Type
+						CC Info:
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Name on CC:
 					</td>
 					<td class = 'ul' ></td>
 				</tr>
 				<tr>
 					<td>
-						 Card #
+						CC Type:
 					</td>
 					<td class = 'ul' ></td>
 				</tr>
 				<tr>
 					<td>
-						Expiration Date
+						 CC #:
 					</td>
 					<td class = 'ul' ></td>
 				</tr>
 				<tr>
 					<td>
-						Notes:
+						Expiration Date:
 					</td>
+					<td class = 'ul' ></td>
 				</tr>
-		
-			</table>	
-				
-	</div> 
-		
-<hr>
-<% if @order.delivery? %> 
- 		<div class = 'split_l split_2'>
-			<div id = 'instructions' class = 'order_instruct'></div>
-		</div>
-		<div class = 'split_r split_2'>
-			<div id = 'larger'>
-				<%= gmaps({
-					"direction" => {
-					"data"    => { "from" => "909 E. Main St, Richmond, VA", "to" => @address } , 
-		             "options" => { "display_panel" => true, "panel_id" => "instructions"}
-		              }
-		      }) %>
-		    </div>
- 		</div>
+								<tr>
+					<td>
+						Security #:
+					</td>
+					<td class = 'ul' ></td>
+				</tr>
+				<tr>
+					<td>
+						Billing Zip:
+					</td>
+					<td class = 'ul' ></td>
+				</tr>
+				<tr><td>&nbsp;</td> </tr>				
+							
+				<tr>
+					<td>
+						Subtotal:
+					</td>
+					<td class = 'ul nl' ><%= deci_plain @order.sub_ttl%></td>
+				</tr> 
 
-<%end%>	
-</div> 
+				<tr>
+					<td>
+						Tax:
+					</td>
+					<td class = 'ul nl' ><%= deci_plain @order.tax%></td>
+				</tr>
+				<tr>
+					<td>
+						Total:
+					</td>
+					<td class = 'ul nl' ><%= deci_plain @order.ttl_price%></td>
+				</tr>				 
+				<tr>
+					<td>
+						Tip:
+					</td>
+					<td class = 'ul' ></td>
+				</tr>		
+				<tr>
+					<td>
+						New Total:
+					</td>
+					<td class = 'ul' ></td>
+				</tr>
+				<tr><td>&nbsp;</td> </tr>	
+				<tr>
+					<td>
+						Signature:
+					</td>
+					<td class = 'ul' ></td>
+				</tr>
+			</table>	
+ 
+			</div>			
 <div class = 'page_break'></div> 
-<div class = 'background_print'> 		
-	
-		
-		<div class = 'topmarg big_print'>
-			<div class = ' no_outline'>
-		
-		<div class = 'lg_text bold span10 offset2 inline topmarg'> 
-				 
-				909 E. Main St. <br> 
-				Richmond VA, 23219  <br>
-				804-780-9038<br>
-				citizenrva@verizon.net<br>
+ <div class = 'white_back'>
+ 
+	 <div class = 'center'> 	
+		<div id = 'lhead'> Citizen </div>
+		<div id  = 'lhead_base'>909 E. Main St. 
+			Richmond VA, 23219  <br>
+			804-780-9038
+			www.citizenrva.com
 		</div>
+ 	</div>
 		
-		<div class = 'topmarg'>
+
 		<%= render 'show'%>
-		</div>
-		</div>
-</div>
-</div>
+	
+ </div> 

@@ -1,25 +1,83 @@
+#background_box{
+  width:60%;
+  background:url('paper.jpg')center center fixed no-repeat;
+ 
+  margin:0 auto;
+  padding:14px;
+  z-index:1;
+  color:black; 
+  -webkit-box-shadow:0 0 15px rgba(0,0,0,0.6);
+  -moz-box-shadow:0 0 15px rgba(0,0,0,0.6);
+  box-shadow:0 0 15px rgba(0,0,0,0.6);
+  -moz-border-radius:10px / 100px;
+  border-radius:10px / 100px;
+  min-height:600px;
+}
+#background_box .btn-mini{
+  font-family:Georgia;
+  font-size:14px;
+  font-weight:bold;
+}
+#address_box{
+    width:20%;
+    display:inline-block;
+    padding:10px;
+
+
+} 
+
+#tags{
+    display:inline-block;
+    width:50%;
+    margin:10px;
+    float:right; 
+    position:relative;
+
+  
+ 
+    text-align:right;
+
+}
+#options{
+    position:relative;
+ 
+    text-align:right;
+    margin:10px 5px 30px 0;
+    float:right;
+}
+.btn-mini, .btn-mini a:link, .btn-mini a:visited{
+    color:black;
+}
+#blinks{
+    float:right;
+    margin:10px;
+}
 .box{
     font-family: DirtyHeadlineRegular;
 }
-#boxl_desc{
-    width:76%;
+.boxl_desc{
+    width:98%;
     padding:5px;
     color:white;
     background:black;
     margin:5px auto 15px auto;
 }
 .box p{
-    width:70%;
+    width:90%;
     padding:3px;
-    margin:auto;
+    margin:0 10px 5px 10px;
     font-size:110%;
+    line-height:18px;
 }
 .box h1{
-    font-size:150%;
+    font-size:33px;
+    margin-bottom:3px;
 }
 .box h2{
-    font-size:140%;
+    font-size:24px;
+    margin:0;
 }
 .box h3{
-    font-size:120%;
+    font-size:16px;
+    margin:0;
 }

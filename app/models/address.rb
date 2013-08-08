@@ -5,13 +5,16 @@ class Address < ActiveRecord::Base
 
 belongs_to :addressable, :polymorphic => true
 
+validates_length_of :phone, :is => 10, :message => 'must be 10 digits, excluding special characters such as spaces and dashes. No extension or country code allowed.', :if => Proc.new{|o| !o.phone.blank?}
+
+
+
 def gmaps4rails_address
   "#{self.street}, #{self.city}, #{self.state}" 
 end
   
-  
 
-  #belongs_to :user
+
   def styled_address
     "#{self.street} #{self.city}, #{self.state.upcase}"
   end 

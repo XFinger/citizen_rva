@@ -1,6 +1,8 @@
 CitizenII::Application.routes.draw do
 
 
+  devise_for :users
+
   resources :orders do
     resources :dishes
     resources :sides
@@ -33,7 +35,7 @@ CitizenII::Application.routes.draw do
     
   end
 
-  devise_for :users 
+ 
 
   root :to => 'blogs#show'
   match 'get_box_menu' => 'boxmenus#get_box_menu', :as => 'get_box_menu'

@@ -1,9 +1,16 @@
  
 	
 <div id = 'background_plain' class = 'bold'>
-	<%= render 'show' %>
-	<div class = 'topmarg btn-group'>
-		<%= link_to 'Edit', edit_order_path(@order), :class => 'btn btn-mini'%>
-		<%= link_to 'Confirm Order', confirmation_path(:id => @order.id, :address => @order.address.id), :class => 'btn btn-mini' if !@order.confirmed?%>
-	</div> 
+	<div id = 'review'>
+		<p id = 'thank_you'>Thanks for your order. Please review your order and click the confirmation button below.</p>
+		<%= render 'review' %>
+		<div class = 'position_buttons'>
+			<div class = 'topmarg btn-group'>
+				<%= link_to 'Edit', edit_order_path(@order), :class => 'btn btn-mini'%>
+				<%= link_to 'Confirm Order', confirmation_path(:id => @order.id, :address => @order.address.id), :class => 'btn btn-mini' if !@order.confirmed?%>
+				<%= link_to 'Cancel Order', @order, :confirm => 'Cancel This Order?', :method => :delete, :class => 'btn btn-mini' %>
+			
+			</div>
+		</div> 
+	</div>
 </div>

@@ -2,7 +2,7 @@
 <h3 class = 'center'>Sign in</h3>
 
 	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  	<div><%= f.label :login %><br />
+  	<div><%= f.label :login, 'User Name or Email' %><br />
   	<%= f.text_field :login %></div>
 
   	<div><%= f.label :password %><br />
@@ -14,5 +14,6 @@
 
   	<div class = 'button_space'><%= f.submit "Sign in" %></div>
 <% end %>
-</div>
 
+<%= render "devise/shared/links" %> 
+</div>

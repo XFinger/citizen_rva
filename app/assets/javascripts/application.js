@@ -6,28 +6,17 @@
 //
 //= require jquery
 //= require jquery_ujs
-
-
 //= require jquery-ui
-//= require jquery.ui.datepicker.min
+//= require jquery.ui.datepicker
+//= require jquery-ui-timepicker-addon
 
-//= require jquery-ui-timepicker-addon 
 //= require jquery.ui.slider
-
 //= require textile-editor
 //= require textile-editor-config
-
 //= require jquery_nested_form
-
+//= addons
 
 //= require_tree .
 
 
-$(document).ready(function() {
-    setTimeout(hideFlashes, 2000);
-});
-
-var hideFlashes = function() {
-  $("#flash_notice, #flash_error, #flash_message").fadeOut(4000);
-}
 

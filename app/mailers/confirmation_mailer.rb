@@ -9,7 +9,7 @@ class ConfirmationMailer < ActionMailer::Base
     @user=user
   
 
-    mail(:to => user.email, :subject => "Your citizen order has been confirmed" )
+    mail(:to => 'citizenrva@verizon.net', :subject => "New Citizen Order" )
   end
   
 end
