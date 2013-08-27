@@ -20,7 +20,7 @@ gem 'cancan'
 gem 'kaminari'
 gem "chronic_duration", "~> 0.10.2"
 gem 'therubyracer', :platforms => :ruby 
-gem 'jquery-rails', '~> 2.1'
+gem 'jquery-rails' 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
